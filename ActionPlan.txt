@@ -1,0 +1,119 @@
+ => download a good design from dribble
+    => Get all the required assets (logo, images, etc)
+    => plan the components
+ => Setup react dom router
+ => Setup tailwind css
+ => Setup redux toolkit
+    => Setup redux rtk query
+    => Setup redux logger
+    => Setup redux songQueue slice
+    => Setup redux user slice
+ => Setup firebase
+    => Setup firebase auth
+    => Setup firebase fireStore
+
+
+
+Decisions:
+    => For the design I fond lot of good ones on dribble, I m not finalizing on any one particular design I will be using bits and pieces of whatever I like and seems doable form each of the design. For now I see that aside looks good and provides a good user experience of music player applications.
+    so first building that, but before that I think I should setup react router and the pages that I will be using.
+
+    => first I think I should setup the router and page structure, decide on the core features and start working on them one by one.
+
+    ok now so lets think of features now.
+    hm.. so what does a music player app have as features?
+      => it plays music
+      => it has a library of songs
+      => it has a queue of songs
+      => it has a playlist of songs
+      => it has a search feature
+      => it has a user profile
+      => it has a user settings
+      => it has a user library
+      => it has a user playlist
+      => it has a user queue
+      => it has a user search history
+      => it has a user recently played
+      => it has a user liked songs
+
+   ok now lets think in terms of pages
+      => home page 
+      => library page
+      => queue aside on right
+      => playlist page
+      => album page
+      => individual artist page
+      => search page
+      => user profile page
+      => user settings page
+   
+   Links I need to have on the navbar
+      => user profile
+         => user profile
+         => user settings
+      => Discover
+         => home
+         => library
+         => search
+      => Your collection
+         => Recent
+         => favorites
+         => playlists
+      => general
+         => settings
+         => logout (if logged in show this else show login)
+
+   ok now phase1 router setup done now need to test the router 
+   then setup the redux store slice and redux RTK query apiSlice for napster api and firebase, also learn how to test redux slice.
+   and other  react component also if possible. learn to setup  
+   storyBook and how to make the components reusable and testable.
+   from webDev simplified youtube channel.
+
+
+
+
+
+   Task done: 
+      router setup:
+         ✅ => home page 
+         ✅ => playlist page 
+         ✅ => individual album page 
+         ✅ => individual artist page 
+         ✅ => search page 
+         ✅ => user profile page 
+         ✅ => user settings page 
+         ✅ => user recently played page 
+         ✅ => user liked songs page
+
+@today 7 Aug 2023
+   Now lets proceed with the redux setup and the redux RTK query setup.
+   also setup the firebase auth and firestore setup.
+
+   ok now lets think in terms on data and state what change will effect what 
+
+   first for RTK query setup I need to setup 
+      the napster api slice and the 
+         get popular albums,
+         get recently added songs
+         get popular artists
+         get specific artist songs
+         get specific album songs
+         get specific song
+         get popular playlists
+         get search results,
+
+      firebase slice. this slice contains
+         user data,
+         user recently played,
+         user liked songs,
+         user playlists,
+         user queue,
+         user current song,
+         user settings
+
+learn how to test stuff in react with vite test 
+also setup the storybook for the components and learn how to make them reusable and testable.
+
+also setup the apiSlice for napsater api learn how to test it.
+      
+
