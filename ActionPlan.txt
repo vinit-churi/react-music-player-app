@@ -115,5 +115,10 @@ learn how to test stuff in react with vite test
 also setup the storybook for the components and learn how to make them reusable and testable.
 
 also setup the apiSlice for napsater api learn how to test it.
+
+@today 8 Aug 2023
+   What should I do? hmm..
+   I have already setup the slice for napster api tho haven't tested it I think I have also setup it for appData only the auth slice is remaining, the previously mentioned all are incomplete lets first complete the bare minimum store setup and then jump on to the aside coding with tailwind css. and the the navbar and the the Albums. loading convert it to a suspend loading and see if its working correctly.
+   aslo if possible uild the retractable 
       
 
