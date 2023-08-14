@@ -53,9 +53,9 @@ Decisions:
          => user settings
       => Discover
          => home
-         => library
          => search
       => Your collection
+         => library
          => Recent
          => favorites
          => playlists
