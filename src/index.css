@@ -5,3 +5,10 @@
 .sidebarBackgroundImage{
     /* background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%); */
 }
+.hide-scrollbar{
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
+}

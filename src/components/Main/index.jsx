@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 const Main = () => {
   return (
-    <main className="row-start-2 row-end-3 col-start-2 col-end-3 bg-slate-100">
+    <main className="row-start-2 row-end-3 col-start-2 col-end-3 bg-slate-100 max-h-none min-h-full">
       <Outlet />
       <footer>footer</footer>
     </main>

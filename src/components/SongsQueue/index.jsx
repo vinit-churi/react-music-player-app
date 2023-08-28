@@ -1,16 +1,16 @@
 import { useState, useEffect, useRef } from "react";
 const SongsQueue = () => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const intervalRef = useRef(null);
-  useEffect(() => {
-    intervalRef.current = setInterval(() => {
-      setIsExpanded((prev) => !prev);
-    }, 4000);
+  // const intervalRef = useRef(null);
+  // useEffect(() => {
+  //   intervalRef.current = setInterval(() => {
+  //     setIsExpanded((prev) => !prev);
+  //   }, 4000);
 
-    return () => {
-      clearInterval(intervalRef.current);
-    };
-  }, []);
+  //   return () => {
+  //     clearInterval(intervalRef.current);
+  //   };
+  // }, []);
   return (
     <section
       className={`bg-blue-100 col-start-3 col-end-4 row-start-1 row-end-4 transition-width ease-in-out duration-1000 ${
