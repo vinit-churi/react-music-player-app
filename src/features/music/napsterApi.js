@@ -43,6 +43,16 @@ export const napsterApi = createApi({
         return data;
       },
     }),
+    getArtistAlbums: builder.query({
+      query: (artistId) =>
+        `artists/${artistId}/albums?limit=10&apikey=${
+          import.meta.env.VITE_NAPSTER_API_KEY
+        }`,
+      transformResponse: (response) => {
+        const { albums: data } = response;
+        return data;
+      },
+    }),
     getTopTracks: builder.query({
       query: () =>
         `tracks/top?limit=15&apikey=${import.meta.env.VITE_NAPSTER_API_KEY}`,
@@ -68,6 +78,14 @@ export const napsterApi = createApi({
         return data;
       },
     }),
+    getPopularArtists: builder.query({
+      query: () =>
+        `artists/top?limit=9&apikey=${import.meta.env.VITE_NAPSTER_API_KEY}`,
+      transformResponse: (response) => {
+        const { artists: data } = response;
+        return data;
+      },
+    }),
     searchSongs: builder.query({
       query: (searchTerm) =>
         `search?query=${searchTerm}&type=track,artist,album&limit=15&apikey=${
@@ -90,4 +108,6 @@ export const {
   useGetAllGenresQuery,
   useGetSongsByGenreQuery,
   useSearchSongsQuery,
+  useGetPopularArtistsQuery,
+  useGetArtistAlbumsQuery,
 } = napsterApi;

@@ -15,10 +15,16 @@ const AlbumCard = ({ album }) => {
           alt=""
         />
       </div>
-      <div className="rounded-md m-2" aria-label="title">
+      <div
+        className="font-bold rounded-md m-2 mb-0 text-sm text-ellipsis max-w-[200px] whitespace-nowrap overflow-hidden text-slate-800"
+        aria-label="title"
+      >
         {name}
       </div>
-      <div className="rounded-md m-2" aria-label="artist">
+      <div
+        className="font-bold rounded-md mx-2 text-ellipsis max-w-[200px] whitespace-nowrap overflow-hidden text-slate-500"
+        aria-label="artist"
+      >
         {artistName}
       </div>
     </Link>

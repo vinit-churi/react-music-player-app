@@ -8,8 +8,8 @@ const PageLink = ({ linkText, className, icon, ...props }) => {
       className={({ isActive }) => {
         return `${className} ${
           isActive
-            ? "text-slate-500 underline underline-offset-4 decoration-double decoration-slate-300"
-            : "text-slate-900"
+            ? "text-slate-500 font-medium underline underline-offset-4 decoration-double decoration-slate-300"
+            : "text-slate-900 font-medium"
         }`;
       }}
     >
