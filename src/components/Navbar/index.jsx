@@ -10,7 +10,7 @@ import NavUserProfile from "./NavUserProfile";
 import SearchInput from "./SearchInput";
 const Navbar = () => {
   return (
-    <nav className="col-start-2 col-end-3 row-start-1 row-end-2 flex align-middle">
+    <nav className="col-start-2 col-end-4 row-start-1 row-end-2 flex align-middle">
       <NavHistoryRouter />
       <SearchInput />
       <NavUserProfile />

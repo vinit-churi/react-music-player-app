@@ -1,30 +1,34 @@
 import { useGetArtistAlbumsQuery } from "./napsterApi";
 import PropTypes from "prop-types"; // Import prop-types
-import striptags from "striptags";
-const ArtistCard = ({ artist }) => {
+// import striptags from "striptags";
+const ArtistCard = ({ artist, className }) => {
   const { data, error, isLoading } = useGetArtistAlbumsQuery(artist.id);
   console.log(data, error, isLoading);
   console.log(artist);
-  let bio = "No bio available for this artist. Please check back later.";
-  if (artist.bios) {
-    console.log(artist.bios[0].bio);
-    bio = striptags(artist.bios[0].bio);
-  }
+  // let bio = "No bio available for this artist. Please check back later.";
+  // if (artist.bios) {
+  //   console.log(artist.bios[0].bio);
+  //   bio = striptags(artist.bios[0].bio);
+  // }
   return (
-    <div aria-label={`artist ${artist.name} container`}>
+    <div
+      className={`${className}`}
+      aria-label={`artist ${artist.name} container`}
+    >
       <img
         src={`https://api.napster.com/imageserver/v2/artists/${artist.id}/images/150x100.jpg`}
         alt={artist.name}
       />
       <h2>{artist.name}</h2>
-      <p>Total albums {artist.albumGroups.main.length}</p>
-      <p>{bio}</p>
+      {/* <p>Total albums {artist.albumGroups.main.length}</p>
+      <p>{bio}</p> */}
     </div>
   );
 };
 
 // Define PropTypes for the 'artist' prop
 ArtistCard.propTypes = {
+  className: PropTypes.string.isRequired,
   artist: PropTypes.shape({
     type: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,

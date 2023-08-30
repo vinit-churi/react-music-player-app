@@ -80,7 +80,7 @@ export const napsterApi = createApi({
     }),
     getPopularArtists: builder.query({
       query: () =>
-        `artists/top?limit=9&apikey=${import.meta.env.VITE_NAPSTER_API_KEY}`,
+        `artists/top?limit=10&apikey=${import.meta.env.VITE_NAPSTER_API_KEY}`,
       transformResponse: (response) => {
         const { artists: data } = response;
         return data;

@@ -1,6 +1,6 @@
 const MusicPlayer = () => {
   return (
-    <div className="row-start-3 row-end-4 col-start-2 col-end-3 ">
+    <div className="row-start-3 row-end-4 col-start-2 col-end-4 ">
       <p>the main player</p>
     </div>
   );

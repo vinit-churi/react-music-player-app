@@ -1,5 +1,5 @@
 import { useGetPopularArtistsQuery } from "./napsterApi";
-import ArtistCard from "./ArtistCard";
+import ArtistGrid from "./ArtistGrid";
 const TopArtists = () => {
   const { data, error, isLoading } = useGetPopularArtistsQuery();
   console.log(error, "error");
@@ -18,10 +18,8 @@ const TopArtists = () => {
               Artists
             </h2>
           </div>
-          <div>
-            {data.map((artist) => (
-              <ArtistCard artist={artist} key={artist.id} />
-            ))}
+          <div className="@container">
+            <ArtistGrid artists={data} />
           </div>
         </div>
       )}
