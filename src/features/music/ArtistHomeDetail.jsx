@@ -13,9 +13,9 @@ const ArtistHomeDetail = ({ artist }) => {
   }
   return (
     <div className="bg-yellow-50 @[768px]:flex">
-      <div className="flex-1 @[768px]:flex-[1_2_50%] h-[350px]">
+      <div className="flex-1 @[768px]:flex-[1_2_50%] h-max @[768px]:h-[350px]">
         <h2 className="text-[24px] mx-2 font-bold">Artist info</h2>
-        <p className="text-justify overflow-auto text-ellipsis px-5 m-5 mt-0 max-h-[300px] min-h-[300px]">
+        <p className="text-justify overflow-auto text-ellipsis px-5 m-5 mt-0 max-h-[300px] @[768px]:min-h-[300px]">
           {bio}
         </p>
       </div>

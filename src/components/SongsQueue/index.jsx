@@ -5,16 +5,16 @@ const SongsQueue = () => {
   useEffect(() => {
     intervalRef.current = setInterval(() => {
       setIsExpanded((prev) => !prev);
-    }, 10000);
+    }, 5000);
 
     return () => {
       clearInterval(intervalRef.current);
     };
   }, []);
   return (
-    <section className="col-start-3 col-end-4 row-start-2 row-end-3 bg-blue-100 w-max">
+    <section className="col-start-3 col-end-4 row-start-2 row-end-3 bg-green-300 w-min">
       <div
-        className={`overflow-hidden bg-blue-100  transition-width ease-in-out duration-1000 ${
+        className={`overflow-hidden bg-blue-100 transition-all duration-300 ease-in-out ${
           !isExpanded ? "w-[0px]" : "w-[300px]"
         }`}
       >
