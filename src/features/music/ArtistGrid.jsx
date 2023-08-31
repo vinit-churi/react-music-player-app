@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ArtistCard from "./ArtistCard";
 import PropTypes from "prop-types";
+import ArtistHomeDetail from "./ArtistHomeDetail";
 const ArtistGrid = ({ artists }) => {
   const [selectedArtist, setSelectedArtist] = useState({});
   console.log(artists, "artists");
@@ -14,7 +15,11 @@ const ArtistGrid = ({ artists }) => {
             selectedArtist={selectedArtist}
             setSelectedArtist={setSelectedArtist}
           />
-          <div className="h-max @[768px]:col-span-2"></div>
+          <div className="h-max @[768px]:col-span-2">
+            {selectedArtist.id === artist.id && (
+              <ArtistHomeDetail artist={selectedArtist} />
+            )}
+          </div>
         </React.Fragment>
       ))}
     </div>

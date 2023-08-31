@@ -1,4 +1,3 @@
-// import { useGetArtistAlbumsQuery } from "./napsterApi";
 import PropTypes from "prop-types"; // Import prop-types
 import { BsFillArrowDownCircleFill } from "react-icons/bs";
 import striptags from "striptags";
@@ -8,9 +7,6 @@ const ArtistCard = ({
   selectedArtist,
   setSelectedArtist,
 }) => {
-  // const { data, error, isLoading } = useGetArtistAlbumsQuery(artist.id);
-  // console.log(data, error, isLoading);
-  // console.log(artist);
   function selectArtist(artist) {
     if (selectedArtist.id === artist.id) {
       setSelectedArtist({});
@@ -27,7 +23,7 @@ const ArtistCard = ({
     <div
       onClick={() => selectArtist(artist)}
       className={`${className} flex bg-slate-200 p-2 gap-1 mt-2 rounded-md hover:bg-slate-300 transition-colors duration-200 ease-in-out ${
-        selectedArtist.id === artist.id && "bg-yellow-100 hover:bg-yellow-100"
+        selectedArtist.id === artist.id && "bg-yellow-50 hover:bg-yellow-50"
       }`}
       aria-label={`artist ${artist.name} container`}
     >
@@ -49,13 +45,10 @@ const ArtistCard = ({
           selectedArtist.id === artist.id && "rotate-180"
         }`}
       />
-      {/* <p>Total albums {artist.albumGroups.main.length}</p>
-      <p></p> */}
     </div>
   );
 };
 
-// Define PropTypes for the 'artist' prop
 ArtistCard.propTypes = {
   selectedArtist: PropTypes.object.isRequired,
   setSelectedArtist: PropTypes.func.isRequired,

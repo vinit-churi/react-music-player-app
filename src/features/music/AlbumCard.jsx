@@ -36,7 +36,7 @@ AlbumCard.propTypes = {
     type: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    released: PropTypes.string.isRequired,
+    originallyReleased: PropTypes.string,
     label: PropTypes.string.isRequired,
     copyright: PropTypes.string.isRequired,
     trackCount: PropTypes.number.isRequired,
