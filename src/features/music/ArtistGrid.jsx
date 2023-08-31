@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import ArtistCard from "./ArtistCard";
 import PropTypes from "prop-types";
 const ArtistGrid = ({ artists }) => {
+  const [selectedArtist, setSelectedArtist] = useState({});
   console.log(artists, "artists");
   return (
-    <div className="grid  grid-cols-[1fr] @[768px]:grid-cols-[1fr_1fr] @[768px]:grid-flow-row-dense">
+    <div className="grid gap-x-2  grid-cols-[1fr] @[768px]:grid-cols-[1fr_1fr] @[768px]:grid-flow-row-dense p-2">
       {artists.map((artist) => (
         <React.Fragment key={artist.id}>
-          <ArtistCard className={`bg-slate-300`} artist={artist} />
-          <div className="h-10 bg-slate-900 my-2 @[768px]:col-span-2"></div>
+          <ArtistCard
+            className={``}
+            artist={artist}
+            selectedArtist={selectedArtist}
+            setSelectedArtist={setSelectedArtist}
+          />
+          <div className="h-max @[768px]:col-span-2"></div>
         </React.Fragment>
       ))}
     </div>
