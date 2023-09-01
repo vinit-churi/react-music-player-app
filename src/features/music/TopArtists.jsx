@@ -3,11 +3,11 @@ import ArtistGrid from "./ArtistGrid";
 import TopArtistsSkeleton from "@/components/Skeleton/TopArtistsSkeleton";
 const TopArtists = () => {
   const { data, error, isLoading } = useGetPopularArtistsQuery();
-  console.log(error, "error");
-  console.log(data, "look here");
+  // console.log(error, "error");
+  // console.log(data, "look here");
   return (
     <div className="mt-4">
-      {isLoading && !data ? (
+      {isLoading && !data && !error ? (
         <TopArtistsSkeleton />
       ) : (
         <div>
