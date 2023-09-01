@@ -7,7 +7,7 @@ const HomePage = () => {
     <div>
       <TopAlbums />
       <TopArtists />
-      <div className="flex">
+      <div className="flex gap-2 px-2 rounded-md">
         <FeaturedGenre />
         <TopSongs />
       </div>

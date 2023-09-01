@@ -8,7 +8,7 @@ const FeaturedGenreSkeleton = () => {
             <h2 className="h-6 w-20 animate-pulse bg-slate-600 rounded-md m-2"></h2>
           </div>
         </div>
-        <div className="flex gap-3 flex-wrap bg-slate-200 p-4">
+        <div className="flex gap-3 flex-wrap bg-slate-200 p-4 max-h-[400px] h-[400px] min-h-[400px] overflow-auto">
           {[...Array(20).keys()].map((key) => {
             return (
               <div
