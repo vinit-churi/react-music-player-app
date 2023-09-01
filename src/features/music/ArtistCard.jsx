@@ -16,7 +16,7 @@ const ArtistCard = ({
   }
   let bio = "No bio available for this artist. Please check back later.";
   if (artist.bios) {
-    console.log(artist.bios[0].bio);
+    // console.log(artist.bios[0].bio);
     bio = striptags(artist.bios[0].bio);
   }
   return (
