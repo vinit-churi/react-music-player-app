@@ -6,11 +6,11 @@ const HomePage = () => {
   return (
     <div>
       <TopAlbums />
-      <TopArtists />
-      <div className="flex gap-2 px-2 rounded-md">
+      <div className="flex flex-wrap rounded-md @container">
         <FeaturedGenre />
         <TopSongs />
       </div>
+      <TopArtists />
     </div>
   );
 };

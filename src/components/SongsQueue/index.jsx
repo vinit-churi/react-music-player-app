@@ -4,7 +4,7 @@ const SongsQueue = () => {
   const intervalRef = useRef(null);
   useEffect(() => {
     intervalRef.current = setInterval(() => {
-      setIsExpanded((prev) => !prev);
+      // setIsExpanded((prev) => !prev);
     }, 5000);
 
     return () => {

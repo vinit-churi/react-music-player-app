@@ -10,7 +10,7 @@ const TopAlbums = () => {
   const [disableScrollLeft, setDisableScrollLeft] = useState(true);
   const [disableScrollRight, setDisableScrollRight] = useState(false);
   const { data, error, isLoading } = useGetPopularAlbumsQuery();
-  // console.log(data, error, isLoading);
+  console.log("error loading data in top Album?", error);
   function scrollLeft() {
     if (albumContainerRef.current.scrollLeft > 0) {
       albumContainerRef.current.scrollLeft -= 400;
@@ -43,7 +43,7 @@ const TopAlbums = () => {
   }
   return (
     <>
-      {isLoading && !data && !error ? (
+      {isLoading && !data ? (
         <TopAlbumsSkeleton />
       ) : (
         <div>

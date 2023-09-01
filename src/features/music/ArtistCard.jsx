@@ -22,8 +22,9 @@ const ArtistCard = ({
   return (
     <div
       onClick={() => selectArtist(artist)}
-      className={`${className} flex bg-slate-200 p-2 gap-1 mt-2 rounded-md hover:bg-slate-300 transition-colors duration-200 ease-in-out ${
-        selectedArtist.id === artist.id && "bg-yellow-50 hover:bg-yellow-50"
+      className={`${className} flex bg-white p-2 gap-1 mt-2 rounded-md hover:bg-yellow-50 transition-colors duration-200 ease-in-out ${
+        selectedArtist.id === artist.id &&
+        "bg-cyan-200 hover:bg-cyan-200 rounded-br-none rounded-bl-none"
       }`}
       aria-label={`artist ${artist.name} container`}
     >
