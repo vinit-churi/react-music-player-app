@@ -1,5 +1,6 @@
 import { useGetPopularArtistsQuery } from "./napsterApi";
 import ArtistGrid from "./ArtistGrid";
+import TopArtistsSkeleton from "@/components/Skeleton/TopArtistsSkeleton";
 const TopArtists = () => {
   const { data, error, isLoading } = useGetPopularArtistsQuery();
   console.log(error, "error");
@@ -7,7 +8,7 @@ const TopArtists = () => {
   return (
     <div className="mt-4">
       {isLoading && !data ? (
-        "data loading..."
+        <TopArtistsSkeleton />
       ) : (
         <div>
           <div aria-label="section title">
