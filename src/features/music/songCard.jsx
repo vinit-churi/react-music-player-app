@@ -1,4 +1,6 @@
 import { AiFillPlayCircle } from "react-icons/ai";
+import { BiSolidAddToQueue } from "react-icons/bi";
+import { MdPlaylistAdd } from "react-icons/md";
 const SongCard = ({ song, index }) => {
   return (
     <div
@@ -13,6 +15,8 @@ const SongCard = ({ song, index }) => {
       </div>
       <p className="flex-auto">{song.albumName}</p>
       <p className="flex-[0_0_min-content] px-2">30s</p>
+      {/* <MdPlaylistAdd className="flex-[0_0_min-content] h-6 mx-2 cursor-pointer hover:h-8 hover:text-yellow-300 transition-all ease-in-out duration-300" /> */}
+      {/* <BiSolidAddToQueue className="flex-[0_0_min-content] h-6 mx-2 cursor-pointer hover:h-8 hover:text-yellow-300 transition-all ease-in-out duration-300" /> */}
       <AiFillPlayCircle className="flex-[0_0_min-content] h-6 mx-4 cursor-pointer hover:h-8 hover:text-yellow-300 transition-all ease-in-out duration-300" />
     </div>
   );
