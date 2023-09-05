@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+:root{
+  --before-width: 0%;
+}
 .sidebarBackgroundImage{
     /* background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%); */
 }
@@ -21,6 +24,9 @@
     cursor: pointer;
     width: 100%;
   }
+.player-custom-range::before{
+  width: var(--before-width);
+}
   
   /* Removes default focus */
   .player-custom-range:focus {
@@ -30,7 +36,8 @@
   /******** Chrome, Safari, Opera and Edge Chromium styles ********/
   /* slider track */
   .player-custom-range::-webkit-slider-runnable-track {
-    background-color: #6ff410;
+    /* background-color: #6ff410; */
+    background-color: #6ff4106c;
     border-radius: 0.5rem;
     height: 6px;
   }
@@ -39,6 +46,8 @@
   .player-custom-range::-webkit-slider-thumb {
     -webkit-appearance: none; /* Override default look */
     appearance: none;
+    position: relative;
+    z-index: 100;
     margin-top: -5px; /* Centers thumb on the track */
     background-color: #087e02;
     border-radius: 0.5rem;
@@ -49,12 +58,14 @@
   .player-custom-range:focus::-webkit-slider-thumb {
     outline: 3px solid #087e02;
     outline-offset: 0.125rem;
+    position: relative;
+    z-index: 100;
   }
   
   /*********** Firefox styles ***********/
   /* slider track */
   .player-custom-range::-moz-range-track {
-    background-color: #6ff410;
+    background-color: #6ff4106c;
     border-radius: 0.5rem;
     height: 6px;
   }
@@ -66,11 +77,15 @@
     border-radius: 0.5rem;
     height: 1rem;
     width: 1rem;
+    position: relative;
+    z-index: 100;
   }
   
   .player-custom-range:focus::-moz-range-thumb{
     outline: 3px solid #087e02;
     outline-offset: 0.125rem;
+    position: relative;
+    z-index: 100;
   }
 
 
@@ -92,7 +107,7 @@
   /******** Chrome, Safari, Opera and Edge Chromium styles ********/
   /* slider track */
   .audio-custom-range::-webkit-slider-runnable-track {
-    background-color: #6ff410;
+    background-color: #6ff4106c;
     border-radius: 0.5rem;
     height: 6px;
   }
@@ -106,17 +121,21 @@
     border-radius: 0.5rem;
     height: 1rem;
     width: 1rem;
+    position: relative;
+    z-index: 100;
   }
   
   .audio-custom-range:focus::-webkit-slider-thumb {
     outline: 3px solid #087e02;
     outline-offset: 0.125rem;
+    position: relative;
+    z-index: 100;
   }
   
   /*********** Firefox styles ***********/
   /* slider track */
   .audio-custom-range::-moz-range-track {
-    background-color: #6ff410;
+    background-color: #6ff4106c;
     border-radius: 0.5rem;
     height: 6px;
   }
@@ -128,9 +147,13 @@
     border-radius: 0.5rem;
     height: 1rem;
     width: 1rem;
+    position: relative;
+    z-index: 100;
   }
   
   .audio-custom-range:focus::-moz-range-thumb{
     outline: 3px solid #087e02;
     outline-offset: 0.125rem;
+    position: relative;
+    z-index: 100;
   }

@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { AiFillPlayCircle } from "react-icons/ai";
 import { BiSolidAddToQueue } from "react-icons/bi";
 import { MdPlaylistAdd } from "react-icons/md";
@@ -16,8 +16,16 @@ import {
 const MusicPlayer = () => {
   const audioRef = useRef();
   const volumeRef = useRef();
+  const [seekBeforeWidth, setSeekBeforeWidth] = useState(0);
   const dispatch = useDispatch();
   const expandedQueue = useSelector(selectExpandedQueue);
+  function handleChange() {
+    console.log("handle change");
+    const audio = audioRef.current;
+    let seekBeforeWidth = (audio.value / audio.max) * 100;
+    console.log(seekBeforeWidth, "line 14");
+    setSeekBeforeWidth(seekBeforeWidth);
+  }
   console.log(expandedQueue, "line 20..");
   return (
     <div className="row-start-3 row-end-4 col-start-2 col-end-4 relative bg-slate-100">
@@ -27,7 +35,12 @@ const MusicPlayer = () => {
         id="playerTime"
         disabled={false}
         ref={audioRef}
-        className="absolute top-0 left-0 right-0 mx-0 translate-y-[-50%] player-custom-range cursor-pointer disabled:cursor-not-allowed"
+        onChange={handleChange}
+        min={0}
+        max={100}
+        // value={0}
+        className={`absolute top-0 left-0 right-0 mx-0 translate-y-[-50%] player-custom-range cursor-pointer disabled:cursor-not-allowed before:content-[' '] before:block before:absolute before:h-[6px] before:bg-green-500 before:rounded-full`}
+        style={{ "--before-width": `${seekBeforeWidth}%` }}
       />
       <div className="flex justify-between px-2 py-2">
         {/* show initial and end time of audioRef */}
