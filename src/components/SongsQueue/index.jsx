@@ -12,13 +12,13 @@ const SongsQueue = () => {
     };
   }, []);
   return (
-    <section className="col-start-3 col-end-4 row-start-2 row-end-3 bg-green-300 w-min">
+    <section className="col-start-3 col-end-4 row-start-2 row-end-3 bg-pink-300 w-min">
       <div
-        className={`overflow-hidden bg-blue-100 transition-all duration-300 ease-in-out ${
-          !isExpanded ? "w-[0px]" : "w-[300px]"
+        className={`overflow-hidden h-full bg-blue-100 transition-all p-2 duration-300 ease-in-out grid grid-rows-[300px] justify-items-center content-center ${
+          !isExpanded ? "w-[100px]" : "w-[300px]"
         }`}
       >
-        <div className={`w-[100%]`}>
+        <div className={`w-[100%] bg-red-400 rounded-md`}>
           <p>song queue section</p>
         </div>
       </div>

@@ -8,9 +8,17 @@ import { AiOutlineStepBackward } from "react-icons/ai";
 import { TbRewindBackward5 } from "react-icons/tb";
 import { TbRewindForward5 } from "react-icons/tb";
 import { BsFillPauseCircleFill } from "react-icons/bs";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  selectExpandedQueue,
+  setExpandedQueue,
+} from "@/features/audioPlayer/audioPlayerSlice";
 const MusicPlayer = () => {
   const audioRef = useRef();
   const volumeRef = useRef();
+  const dispatch = useDispatch();
+  const expandedQueue = useSelector(selectExpandedQueue);
+  console.log(expandedQueue, "line 20..");
   return (
     <div className="row-start-3 row-end-4 col-start-2 col-end-4 relative bg-slate-100">
       <input
@@ -56,7 +64,14 @@ const MusicPlayer = () => {
           />
           <MdPlaylistAdd className="flex-[0_0_min-content] h-6 mx-2 cursor-pointer hover:scale-105 hover:text-[#087e02] transition-all ease-in-out duration-300" />
           <BiSolidAddToQueue className="flex-[0_0_min-content] h-6 mx-2 cursor-pointer hover:scale-105 hover:text-[#087e02] transition-all ease-in-out duration-300" />
-          <BsCollectionPlayFill className="flex-[0_0_min-content] h-6 mx-2 cursor-pointer hover:scale-105 hover:text-[#087e02] transition-all ease-in-out duration-300" />
+          <BsCollectionPlayFill
+            onClick={() => dispatch(setExpandedQueue(!expandedQueue))}
+            className={`flex-[0_0_min-content] h-6 mx-2 cursor-pointer hover:scale-105  transition-all ease-in-out duration-300 ${
+              expandedQueue
+                ? "hover:caret-yellow-300 text-yellow-500"
+                : "hover:text-[#087e02]"
+            }`}
+          />
         </div>
       </div>
     </div>

@@ -3,12 +3,14 @@ import authReducer from "@/features/auth/authSlice";
 import { setupListeners } from "@reduxjs/toolkit/dist/query";
 import { napsterApi } from "@/features/music/napsterApi";
 import { appDataApi } from "@/features/appData/appData";
+import audioPlayerSlice from "@/features/audioPlayer/audioPlayerSlice";
 const initialState = {};
 
 export const store = configureStore({
   initialState,
   reducer: {
     auth: authReducer,
+    audioPlayer: audioPlayerSlice,
     [napsterApi.reducerPath]: napsterApi.reducer,
     [appDataApi.reducerPath]: appDataApi.reducer,
   },
