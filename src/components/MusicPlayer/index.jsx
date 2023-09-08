@@ -1,6 +1,5 @@
 import { useRef, useState } from "react";
 import { AiFillPlayCircle } from "react-icons/ai";
-import { BiSolidAddToQueue } from "react-icons/bi";
 import { MdPlaylistAdd } from "react-icons/md";
 import { BsCollectionPlayFill } from "react-icons/bs";
 import { AiOutlineStepForward } from "react-icons/ai";
@@ -38,7 +37,7 @@ const MusicPlayer = () => {
         onChange={handleChange}
         min={0}
         max={100}
-        // value={0}
+        defaultValue={0}
         className={`absolute top-0 left-0 right-0 mx-0 translate-y-[-50%] player-custom-range cursor-pointer disabled:cursor-not-allowed before:content-[' '] before:block before:absolute before:h-[6px] before:bg-green-500 before:rounded-full`}
         style={{ "--before-width": `${seekBeforeWidth}%` }}
       />
@@ -66,20 +65,20 @@ const MusicPlayer = () => {
           <AiOutlineStepForward className="flex-[0_0_min-content] h-6 mx-2 cursor-pointer hover:scale-125 hover:text-[#087e02] transition-all ease-in-out duration-300" />
           <TbRewindForward5 className="flex-[0_0_min-content] h-6 mx-2 cursor-pointer hover:scale-125 hover:text-[#087e02] transition-all ease-in-out duration-300" />
         </div>
-        <div className="flex items-center mr-2 ml-auto flex-wrap justify-between flex-[0_0_130px]">
+        <div className="flex items-center mr-2 ml-auto flex-wrap justify-end flex-[0_0_130px]">
           <input
             type="range"
             name="music time seekBar"
             id="playerTime"
             disabled={false}
             ref={volumeRef}
+            defaultValue={0}
             className="audio-custom-range cursor-pointer disabled:cursor-not-allowed flex-[1_1_100%]"
           />
-          <MdPlaylistAdd className="flex-[0_0_min-content] h-6 mx-2 cursor-pointer hover:scale-105 hover:text-[#087e02] transition-all ease-in-out duration-300" />
-          <BiSolidAddToQueue className="flex-[0_0_min-content] h-6 mx-2 cursor-pointer hover:scale-105 hover:text-[#087e02] transition-all ease-in-out duration-300" />
+          <MdPlaylistAdd className="flex-[0_0_max-content] h-6 mx-2 cursor-pointer hover:scale-105 hover:text-[#087e02] transition-all ease-in-out duration-300" />
           <BsCollectionPlayFill
             onClick={() => dispatch(setExpandedQueue(!expandedQueue))}
-            className={`flex-[0_0_min-content] h-6 mx-2 cursor-pointer hover:scale-105  transition-all ease-in-out duration-300 ${
+            className={`flex-[0_0_max-content] h-6 mx-2 cursor-pointer hover:scale-105  transition-all ease-in-out duration-300 ${
               expandedQueue
                 ? "hover:caret-yellow-300 text-yellow-500"
                 : "hover:text-[#087e02]"

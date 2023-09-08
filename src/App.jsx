@@ -1,6 +1,8 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootLayout from "@/components/Root";
 import HomePage from "@/components/HomePage";
+import AlbumPage from "@/components/AlbumPage";
+import YetToBe from "@/components/YetToBe";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -15,12 +17,12 @@ const router = createBrowserRouter([
       {
         path: "album/:albumId",
         errorElement: <h1>album error</h1>,
-        element: <h1>Album</h1>,
+        element: <AlbumPage />,
       },
       {
         path: "search/",
         errorElement: <h1>search error</h1>,
-        element: <h1>Search page</h1>,
+        element: <YetToBe />,
       },
       {
         path: "artist/:artistId",
@@ -28,18 +30,18 @@ const router = createBrowserRouter([
         element: <h1>Artist</h1>,
       },
       {
-        path: "user/:userId",
+        path: "user/",
         errorElement: <h1>user profile Root error</h1>,
         children: [
           {
             path: "profile",
-            element: <h1>Profile home</h1>,
+            element: <YetToBe />,
             errorElement: <h1>user/profile error</h1>,
           },
           {
             path: "settings",
             errorElement: <h1>profile settings error</h1>,
-            element: <h1>Profile settings</h1>,
+            element: <YetToBe />,
           },
           {
             path: "collection",
@@ -47,26 +49,32 @@ const router = createBrowserRouter([
             children: [
               // => Recent
               {
+                path: "library",
+                errorElement: <h1>library error</h1>,
+                element: <YetToBe />,
+              },
+              // => Recent
+              {
                 path: "recent",
                 errorElement: <h1>recent error</h1>,
-                element: <h1>Recent</h1>,
+                element: <YetToBe />,
               },
               // => favorites
               {
                 path: "favorites",
                 errorElement: <h1>favorites error</h1>,
-                element: <h1>Favorites</h1>,
+                element: <YetToBe />,
               },
               //  => playlists
               {
                 path: "playlists",
                 errorElement: <h1>playlist error</h1>,
-                element: <h1>Playlists</h1>,
+                element: <YetToBe />,
                 children: [
                   {
                     path: ":playlistId",
                     errorElement: <h1>playlist error</h1>,
-                    element: <h1> specific Playlist</h1>,
+                    element: <YetToBe />,
                   },
                 ],
               },
