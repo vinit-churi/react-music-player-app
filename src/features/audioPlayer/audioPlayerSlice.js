@@ -41,6 +41,13 @@ export const audioPlayerSlice = createSlice({
     setSongQueue: (state, action) => {
       state.songQueue = action.payload;
     },
+    playNext: (state) => {
+      if (state.songQueue.length > 0) {
+        state.currentTrack = state.songQueue.shift();
+      }else{
+        state.currentTrack = null;
+      }
+    },
     addToSongQueue: (state, action) => {
       if (state.currentTrack == null) {
         state.currentTrack = action.payload;
@@ -68,6 +75,7 @@ export const {
   addToSongQueue,
   setSongQueue,
   resetSongQueue,
+  playNext,
 } = audioPlayerSlice.actions;
 
 export const selectIsPlaying = (state) => state.audioPlayer.isPlaying;
