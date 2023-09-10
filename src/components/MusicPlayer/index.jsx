@@ -23,6 +23,7 @@ import {
   selectCurrentTime,
   selectDuration,
   selectCurrentTrack,
+  playNext
 } from "@/features/audioPlayer/audioPlayerSlice";
 const MusicPlayer = () => {
   const audioRef = useRef();
@@ -53,38 +54,7 @@ const MusicPlayer = () => {
     audioElement.current.pause();
     dispatch(pause());
   }
-  // const handleEnded = useCallback(() => {
-  //   setPlayable(false);
-  //   dispatch(setCurrentTrack(null));
-  //   dispatch(setCurrentTime(0));
-  //   dispatch(setDuration(0));
-  //   dispatch(pause());
-  //   setSeekBeforeWidth(0);
-  //   audioElement.current.src = "";
-  //   let songList = songQueue;
-  //   console.log("songQueue look here", songList);
-  //   if (songQueue.length > 0) {
-  //     dispatch(setCurrentTrack(songQueue[0]));
-  //     console.log(songQueue.slice(1));
-  //     dispatch(setSongQueue(songQueue.slice(1)));
-  //     // setPlayable(false);
-  //   }
-  // }, [songQueue]);
-  const handleEnded = () => {
-    setPlayable(false);
-    dispatch(setCurrentTrack(null));
-    dispatch(setCurrentTime(0));
-    dispatch(setDuration(0));
-    dispatch(pause());
-    setSeekBeforeWidth(0);
-    audioElement.current.src = "";
-    if (songQueue.length > 0) {
-      dispatch(setCurrentTrack(songQueue[0]));
-      console.log(songQueue.slice(1));
-      dispatch(setSongQueue(songQueue.slice(1)));
-      // setPlayable(false);
-    }
-  };
+  
   useEffect(() => {
     if (!currentTrack) return;
     const localAudioElement = audioElement.current;
@@ -103,6 +73,15 @@ const MusicPlayer = () => {
         (localAudioElement.currentTime / localAudioElement.duration) * 100;
       setSeekBeforeWidth(seekBeforeWidth);
     }
+    function handleEnded() {
+      setPlayable(false);
+      dispatch(setCurrentTime(0));
+      dispatch(setDuration(0));
+      dispatch(pause());
+      setSeekBeforeWidth(0);
+      audioElement.current.src = "";
+      dispatch(playNext());
+    };
     localAudioElement.addEventListener("canplaythrough", handleCanPlayThrough);
     localAudioElement.addEventListener("ended", handleEnded);
     localAudioElement.addEventListener("timeupdate", handleTimeUpdate);
