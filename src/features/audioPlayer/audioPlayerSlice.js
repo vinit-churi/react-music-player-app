@@ -31,10 +31,25 @@ export const audioPlayerSlice = createSlice({
       state.duration = action.payload;
     },
     setCurrentTrack: (state, action) => {
-      state.currentTrack = action.payload;
+      if (state.currentTrack == null) {
+        state.currentTrack = action.payload;
+      } else {
+        state.songQueue.unshift(state.currentTrack);
+        state.currentTrack = action.payload;
+      }
     },
     setSongQueue: (state, action) => {
       state.songQueue = action.payload;
+    },
+    addToSongQueue: (state, action) => {
+      if (state.currentTrack == null) {
+        state.currentTrack = action.payload;
+      } else {
+        state.songQueue.push(action.payload);
+      }
+    },
+    resetSongQueue: (state) => {
+      state.songQueue = [];
     },
     setExpandedQueue: (state, action) => {
       state.expandedQueue = action.payload;
@@ -49,8 +64,10 @@ export const {
   setCurrentTime,
   setDuration,
   setCurrentTrack,
-  setSongQueue,
   setExpandedQueue,
+  addToSongQueue,
+  setSongQueue,
+  resetSongQueue,
 } = audioPlayerSlice.actions;
 
 export const selectIsPlaying = (state) => state.audioPlayer.isPlaying;
