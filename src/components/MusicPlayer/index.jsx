@@ -23,7 +23,7 @@ import {
   selectCurrentTime,
   selectDuration,
   selectCurrentTrack,
-  playNext
+  playNext,
 } from "@/features/audioPlayer/audioPlayerSlice";
 const MusicPlayer = () => {
   const audioRef = useRef();
@@ -54,7 +54,7 @@ const MusicPlayer = () => {
     audioElement.current.pause();
     dispatch(pause());
   }
-  
+
   useEffect(() => {
     if (!currentTrack) return;
     const localAudioElement = audioElement.current;
@@ -81,7 +81,7 @@ const MusicPlayer = () => {
       setSeekBeforeWidth(0);
       audioElement.current.src = "";
       dispatch(playNext());
-    };
+    }
     localAudioElement.addEventListener("canplaythrough", handleCanPlayThrough);
     localAudioElement.addEventListener("ended", handleEnded);
     localAudioElement.addEventListener("timeupdate", handleTimeUpdate);
@@ -127,7 +127,7 @@ const MusicPlayer = () => {
         </p>
       </div>
       <div className="flex justify-center">
-        <div className="grid ml-2 mr-auto gap-2 grid-rows-[min-content_min-content] grid-cols-[min-content_min-content] grid-flow-dense">
+        <div className="grid ml-2 gap-2 grid-rows-[min-content_min-content] grid-cols-[min-content_min-content] grid-flow-dense">
           {currentTrack ? (
             <>
               <div className="h-12 w-12 rounded-md row-start-1 row-span-2">
@@ -137,10 +137,10 @@ const MusicPlayer = () => {
                   alt=""
                 />
               </div>
-              <p className="max-w-16 truncate text-[14px] font-bold m-0">
+              <p className="w-20 truncate text-[14px] font-bold m-0">
                 {currentTrack.name}
               </p>
-              <p className="max-w-24 truncate text-[14px] font-bold m-0">
+              <p className="w-20 truncate text-[14px] font-bold m-0">
                 {currentTrack.artistName}
               </p>
             </>
@@ -152,7 +152,7 @@ const MusicPlayer = () => {
             </>
           )}
         </div>
-        <div className="flex items-center">
+        <div className="flex mx-auto items-center">
           <TbRewindBackward5 className="flex-[0_0_min-content] h-6 mx-2 cursor-pointer hover:scale-125 hover:text-[#087e02] transition-all ease-in-out duration-300" />
           <AiOutlineStepBackward className="flex-[0_0_min-content] h-6 mx-2 cursor-pointer hover:scale-125 hover:text-[#087e02] transition-all ease-in-out duration-300" />
           {isPlaying ? (
@@ -172,10 +172,13 @@ const MusicPlayer = () => {
               <AiFillPlayCircle className="h-full w-full" />
             </button>
           )}
-          <AiOutlineStepForward className="flex-[0_0_min-content] h-6 mx-2 cursor-pointer hover:scale-125 hover:text-[#087e02] transition-all ease-in-out duration-300" />
+          <AiOutlineStepForward
+            onClick={() => dispatch(playNext())}
+            className="flex-[0_0_min-content] h-6 mx-2 cursor-pointer hover:scale-125 hover:text-[#087e02] transition-all ease-in-out duration-300"
+          />
           <TbRewindForward5 className="flex-[0_0_min-content] h-6 mx-2 cursor-pointer hover:scale-125 hover:text-[#087e02] transition-all ease-in-out duration-300" />
         </div>
-        <div className="flex items-center mr-2 ml-auto flex-wrap justify-end flex-[0_0_130px]">
+        <div className="flex items-center mr-2 flex-wrap justify-end flex-[0_0_130px]">
           <input
             type="range"
             name="music time seekBar"
