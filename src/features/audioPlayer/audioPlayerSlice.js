@@ -9,6 +9,7 @@ const initialState = {
   currentTrack: null,
   songQueue: [],
   expandedQueue: false,
+  showSidebar: false,
 };
 
 export const audioPlayerSlice = createSlice({
@@ -44,7 +45,7 @@ export const audioPlayerSlice = createSlice({
     playNext: (state) => {
       if (state.songQueue.length > 0) {
         state.currentTrack = state.songQueue.shift();
-      }else{
+      } else {
         state.currentTrack = null;
       }
     },
@@ -61,6 +62,9 @@ export const audioPlayerSlice = createSlice({
     setExpandedQueue: (state, action) => {
       state.expandedQueue = action.payload;
     },
+    setShowSidebar: (state, action) => {
+      state.showSidebar = action.payload;
+    },
   },
 });
 
@@ -76,6 +80,7 @@ export const {
   setSongQueue,
   resetSongQueue,
   playNext,
+  setShowSidebar,
 } = audioPlayerSlice.actions;
 
 export const selectIsPlaying = (state) => state.audioPlayer.isPlaying;
@@ -85,4 +90,5 @@ export const selectDuration = (state) => state.audioPlayer.duration;
 export const selectCurrentTrack = (state) => state.audioPlayer.currentTrack;
 export const selectSongQueue = (state) => state.audioPlayer.songQueue;
 export const selectExpandedQueue = (state) => state.audioPlayer.expandedQueue;
+export const selectShowSidebar = (state) => state.audioPlayer.showSidebar;
 export default audioPlayerSlice.reducer;

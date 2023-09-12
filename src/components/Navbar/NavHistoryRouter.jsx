@@ -14,7 +14,7 @@ const NavHistoryRouter = () => {
     navigate(1);
   };
   return (
-    <div className="flex-[0_0_110px] flex gap-[10px] items-center justify-center">
+    <div className="flex-[0_0_110px] flex gap-[10px] items-center justify-center max-[600px]:hidden">
       <button
         onClick={handleGoBack}
         role="button"

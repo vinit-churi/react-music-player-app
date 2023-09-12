@@ -22,7 +22,7 @@ const SearchInput = () => {
           aria-required="true"
         />
       </form>
-      <div
+      {/* <div
         className="flex gap-2 items-center rounded-full h-10 border-2 border-slate-700 px-3 cursor-pointer"
         aria-label="search options"
       >
@@ -32,7 +32,7 @@ const SearchInput = () => {
           alt="drop down"
           className="relative top-[2px]"
         />
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -127,7 +127,7 @@ const MusicPlayer = () => {
         </p>
       </div>
       <div className="flex justify-center">
-        <div className="grid ml-2 gap-2 grid-rows-[min-content_min-content] grid-cols-[min-content_min-content] grid-flow-dense">
+        <div className="grid ml-2 gap-2 grid-rows-[min-content_min-content] grid-cols-[min-content_min-content] grid-flow-dense max-[600px]:hidden">
           {currentTrack ? (
             <>
               <div className="h-12 w-12 rounded-md row-start-1 row-span-2">
@@ -178,7 +178,7 @@ const MusicPlayer = () => {
           />
           <TbRewindForward5 className="flex-[0_0_min-content] h-6 mx-2 cursor-pointer hover:scale-125 hover:text-[#087e02] transition-all ease-in-out duration-300" />
         </div>
-        <div className="flex items-center mr-2 flex-wrap justify-end flex-[0_0_130px]">
+        <div className="flex items-center mr-2 flex-wrap justify-end flex-[0_0_130px] max-[600px]:hidden">
           <input
             type="range"
             name="music time seekBar"
