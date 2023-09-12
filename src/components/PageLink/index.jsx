@@ -5,6 +5,7 @@ const PageLink = ({ linkText, className, icon, ...props }) => {
   return (
     <NavLink
       {...props}
+      onClick={() => dispatch(setShowSidebar(false))}
       className={({ isActive }) => {
         return `${className} ${
           isActive

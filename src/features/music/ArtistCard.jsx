@@ -31,7 +31,7 @@ const ArtistCard = ({
       <img
         src={`https://api.napster.com/imageserver/v2/artists/${artist.id}/images/150x100.jpg`}
         alt={artist.name}
-        className="flex-[0_0_200px] rounded-md"
+        className="flex-[0_0_200px] rounded-md max-[500px]:flex-[0_0_150px] "
       />
       <div className="flex-[1_1_auto] max-w-full">
         <h2 className=" font-bold rounded-md mx-2 text-ellipsis  whitespace-nowrap overflow-hidden text-slate-500">

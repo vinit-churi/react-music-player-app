@@ -1,7 +1,7 @@
 const NavUserProfile = () => {
   let user = null;
   return (
-    <div className="flex items-center">
+    <div className="flex items-center order-3 max-[500px]:hidden">
       {user ? (
         <div aria-label="user profile dropdown"></div>
       ) : (

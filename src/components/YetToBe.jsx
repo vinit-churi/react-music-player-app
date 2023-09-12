@@ -5,7 +5,7 @@ const YetToBe = () => {
     <div>
       <h1 className="m-3 font-bold text-center text-4xl">Working on it. 🥹</h1>
       <img
-        className="w-2/3 block my-10 mx-auto rounded-md"
+        className="w-8/10 block my-10 mx-auto rounded-md"
         src={image1}
         alt=""
       />

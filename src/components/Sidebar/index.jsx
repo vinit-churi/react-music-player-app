@@ -33,7 +33,11 @@ const Sidebar = () => {
           onClick={() => dispatch(setShowSidebar(false))}
           className="text-black text-4xl hidden mx-auto mb-3 cursor-pointer max-[1100px]:block"
         />
-        <Link className="max-[1100px]:w-full max-[1100px]:h-max" to="/">
+        <Link
+          onClick={() => dispatch(setShowSidebar(false))}
+          className="max-[1100px]:w-full max-[1100px]:h-max"
+          to="/"
+        >
           <img
             className="mt-3 mb-5 cursor-pointer max-[1100px]:mx-auto max-[1100px]:block max-[1100px]:w-[min(90%,300px)] max-[1100px]:h-auto"
             src={logo}
