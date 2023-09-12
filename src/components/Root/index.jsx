@@ -5,7 +5,7 @@ import SongsQueue from "@/components/SongsQueue";
 import MusicPlayer from "@/components/MusicPlayer";
 const RootLayout = () => {
   return (
-    <div className="h-screen grid grid-rows-[80px_auto_100px] max-[500px]:grid-rows-[max-content_auto_100px] grid-cols-[300px_1fr_min-content] max-[1100px]:grid-cols-[0px_1fr_min-content] max-[600px]:grid-cols-[0px_1fr_0px] overflow-y-hidden overflow-x-hidden">
+    <div className="h-screen h-[100dvh] transition-height duration-300 ease-in grid grid-rows-[80px_auto_100px] max-[500px]:grid-rows-[max-content_auto_100px] grid-cols-[300px_1fr_min-content] max-[1100px]:grid-cols-[0px_1fr_min-content] max-[600px]:grid-cols-[0px_1fr_0px] overflow-y-hidden overflow-x-hidden">
       <Sidebar />
       <Navbar />
       <Main />
