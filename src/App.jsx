@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootLayout from "@/components/Root";
 import HomePage from "@/components/HomePage";
 import AlbumPage from "@/components/AlbumPage";
+import Search from "@/components/Search";
 import YetToBe from "@/components/YetToBe";
 const router = createBrowserRouter([
   {
@@ -22,7 +23,7 @@ const router = createBrowserRouter([
       {
         path: "search/",
         errorElement: <h1>search error</h1>,
-        element: <YetToBe />,
+        element: <Search />,
       },
       {
         path: "artist/:artistId",

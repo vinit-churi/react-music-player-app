@@ -1,9 +1,18 @@
 import searchIcon from "@/assets/icons/search-nav.png";
-import dorpDownIcon from "@/assets/icons/drop-down.png";
+import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import notify from "@/components/notify";
 const SearchInput = () => {
+  const navigate = useNavigate();
+  const inputRef = useRef();
   function handleSearch(event) {
     event.preventDefault();
-    console.log(event.target.value);
+    const query = inputRef.current.value;
+    if (query.trim() === "") {
+      notify("Please enter a valid search query", "🤔");
+      return;
+    }
+    navigate(`/search?q=${query}`);
   }
   return (
     <div className="flex gap-5 items-center flex-[1_1_auto] max-[500px]:order-4 max-[500px]:flex-[1_1_100%] max-[500px]:justify-center pb-2">
@@ -13,6 +22,7 @@ const SearchInput = () => {
       >
         <img src={searchIcon} alt="" />
         <input
+          ref={inputRef}
           className="border-none outline-none h-full flex-[1_1_auto] min-w-[60px]"
           type="text"
           name="search"

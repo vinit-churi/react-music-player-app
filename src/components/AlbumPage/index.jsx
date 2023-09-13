@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useGetAlbumTracksQuery } from "@/features/music/napsterApi";
 import SongCard from "@/features/music/SongCard";
+import AlbumPageSk from "@/components/Skeleton/AlbumPage/AlbumPageSk";
 const Index = () => {
   const { albumId } = useParams();
   console.log(albumId);
@@ -8,10 +9,10 @@ const Index = () => {
   console.log(data, error, isLoading);
 
   return (
-    <div className="min-h-[700px]">
+    <div className="mx-3 my-1">
       <div aria-label="album page">
         {!data && isLoading ? (
-          <h1>loading</h1>
+          <AlbumPageSk />
         ) : (
           <div>
             <div className="flex">
@@ -30,13 +31,17 @@ const Index = () => {
                 </p>
               </div>
             </div>
-            <div className="mr-10 grid grid-cols-1 gap-2">
+            <div className="w-9/10 mx-auto grid grid-cols-1 gap-2 mt-4">
               {data.map((song, index) => {
                 return (
                   <SongCard
                     key={song.id}
                     song={song}
-                    index={index + 1 < 10 ? `0${Number(index) + 1}` : index + 1}
+                    index={
+                      index + 1 < 10
+                        ? `0${Number(index) + 1}`
+                        : `${Number(index) + 1}`
+                    }
                   />
                 );
               })}

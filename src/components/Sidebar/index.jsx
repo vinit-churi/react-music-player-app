@@ -10,6 +10,7 @@ import settingIcon from "@/assets/icons/setting.png";
 import { Link } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
+import NavUserProfile from "@/components/Navbar/NavUserProfile";
 import {
   setShowSidebar,
   selectShowSidebar,
@@ -95,6 +96,9 @@ const Sidebar = () => {
           icon={settingIcon}
           to="/user/settings"
         />
+        <div className="w-max my-2 mx-auto hidden max-[1100px]:block">
+          <NavUserProfile />
+        </div>
       </div>
     </aside>
   );

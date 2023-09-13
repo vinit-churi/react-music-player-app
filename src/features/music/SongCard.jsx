@@ -1,9 +1,10 @@
 import { AiFillPlayCircle } from "react-icons/ai";
 import { BiSolidAddToQueue } from "react-icons/bi";
 import PropTypes from "prop-types";
+import notify from "@/components/Notify";
 import {
   selectIsPlaying,
-  // selectCurrentTrack,
+  selectCurrentTrack,
   play,
   pause,
   setCurrentTrack,
@@ -12,9 +13,10 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 const SongCard = ({ song, index }) => {
   const dispatch = useDispatch();
-  // const currentTrack = useSelector(selectCurrentTrack);
-  // const isPlaying = useSelector(selectIsPlaying);
+  const currentTrack = useSelector(selectCurrentTrack);
+  const isPlaying = useSelector(selectIsPlaying);
   function handleAddSongToQueue() {
+    notify("Song added to queue", "🎸");
     dispatch(addToSongQueue(song));
   }
   function handlePlaySong() {
@@ -58,7 +60,7 @@ SongCard.propTypes = {
     albumName: PropTypes.string.isRequired,
     // Add more prop types for other properties of the song object
   }).isRequired,
-  index: PropTypes.number.isRequired,
+  index: PropTypes.string.isRequired,
 };
 
 export default SongCard;

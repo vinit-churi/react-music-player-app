@@ -46,7 +46,13 @@ export const audioPlayerSlice = createSlice({
       if (state.songQueue.length > 0) {
         state.currentTrack = state.songQueue.shift();
       } else {
-        state.currentTrack = null;
+        console.log("no more songs in queue");
+        if (!state.isPlaying) {
+          state.currentTrack = null;
+        }
+        // state.currentTime = 0;
+        // state.duration = 0;
+        // state.isPlaying = false;
       }
     },
     addToSongQueue: (state, action) => {

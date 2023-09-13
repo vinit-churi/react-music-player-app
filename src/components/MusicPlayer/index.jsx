@@ -159,7 +159,7 @@ const MusicPlayer = () => {
             <button
               onClick={handlePause}
               disabled={!playable}
-              className="flex-[0_0_30px] disabled:opacity-50 h-[30px] mx-2 cursor-pointer hover:scale-125 hover:text-[#087e02] transition-all ease-in-out duration-300"
+              className="flex-[0_0_40px] disabled:opacity-50 h-[40px] mx-2 cursor-pointer hover:scale-125 hover:text-[#087e02] transition-all ease-in-out duration-300"
             >
               <BsFillPauseCircleFill className="h-full w-full" />
             </button>
@@ -167,7 +167,7 @@ const MusicPlayer = () => {
             <button
               onClick={handlePlay}
               disabled={!playable}
-              className="flex-[0_0_30px] disabled:opacity-50 h-[30px] mx-2 cursor-pointer hover:scale-125 hover:text-[#087e02] transition-all ease-in-out duration-300"
+              className="flex-[0_0_40px] disabled:opacity-50 h-[40px] mx-2 cursor-pointer hover:scale-125 hover:text-[#087e02] transition-all ease-in-out duration-300"
             >
               <AiFillPlayCircle className="h-full w-full" />
             </button>
