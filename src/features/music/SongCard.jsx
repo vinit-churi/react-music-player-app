@@ -1,7 +1,7 @@
 import { AiFillPlayCircle } from "react-icons/ai";
 import { BiSolidAddToQueue } from "react-icons/bi";
 import PropTypes from "prop-types";
-import notify from "@/components/Notify";
+import notify from "@/components/notify";
 import {
   selectIsPlaying,
   selectCurrentTrack,
