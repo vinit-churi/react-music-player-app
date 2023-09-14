@@ -48,7 +48,7 @@ const SongCard = ({ song, index }) => {
         className="flex-[0_0_min-content] h-6 mx-2 cursor-pointer hover:scale-105 hover:text-yellow-400 transition-all ease-in-out duration-300"
       />
       {currentTrack?.id === song.id ? (
-        <div className="group  h-12 w-12 mr-2 flex justify-center items-center">
+        <div className="group  h-12 w-12 mx-1 flex justify-center items-center">
           <img
             src={animatedIcon}
             className="flex-[0_0_min-content] invert-0 h-2/3 w-2/3 object-center object-contain group-hover:hidden cursor-pointer hover:scale-105 hover:text-yellow-400 transition-all ease-in-out duration-300"
