@@ -47,14 +47,20 @@ const MusicPlayer = () => {
   }
 
   function handlePlay() {
-    audioElement.current.play();
+    // audioElement.current.play();
     dispatch(play());
   }
   function handlePause() {
-    audioElement.current.pause();
+    // audioElement.current.pause();
     dispatch(pause());
   }
-
+  useEffect(() => {
+    if (isPlaying) {
+      audioElement.current.play();
+    } else {
+      audioElement.current.pause();
+    }
+  }, [isPlaying]);
   useEffect(() => {
     if (!currentTrack) return;
     const localAudioElement = audioElement.current;

@@ -2,6 +2,8 @@ import { AiFillPlayCircle } from "react-icons/ai";
 import { BiSolidAddToQueue } from "react-icons/bi";
 import PropTypes from "prop-types";
 import notify from "@/components/notify";
+import animatedIcon from "@/assets/images/bel-7-no-bg.gif";
+import { BsFillPauseCircleFill } from "react-icons/bs";
 import {
   selectIsPlaying,
   selectCurrentTrack,
@@ -45,10 +47,30 @@ const SongCard = ({ song, index }) => {
         onClick={handleAddSongToQueue}
         className="flex-[0_0_min-content] h-6 mx-2 cursor-pointer hover:scale-105 hover:text-yellow-400 transition-all ease-in-out duration-300"
       />
-      <AiFillPlayCircle
-        onClick={handlePlaySong}
-        className="flex-[0_0_min-content] h-6 mx-2 cursor-pointer hover:scale-105 hover:text-yellow-400 transition-all ease-in-out duration-300"
-      />
+      {currentTrack?.id === song.id ? (
+        <div className="group  h-12 w-12 mr-2 flex justify-center items-center">
+          <img
+            src={animatedIcon}
+            className="flex-[0_0_min-content] invert-0 h-2/3 w-2/3 object-center object-contain group-hover:hidden cursor-pointer hover:scale-105 hover:text-yellow-400 transition-all ease-in-out duration-300"
+          />
+          {isPlaying ? (
+            <BsFillPauseCircleFill
+              onClick={() => dispatch(pause())}
+              className="hidden group-hover:block object-contain object-center h-6 w-6 cursor-pointer"
+            />
+          ) : (
+            <AiFillPlayCircle
+              onClick={() => dispatch(play())}
+              className="hidden group-hover:block object-contain object-center h-6 w-6 cursor-pointer hover:scale-105 hover:text-yellow-400 transition-all ease-in-out duration-300"
+            />
+          )}
+        </div>
+      ) : (
+        <AiFillPlayCircle
+          onClick={handlePlaySong}
+          className="flex-[0_0_min-content] h-6  mx-4 cursor-pointer hover:scale-105 hover:text-yellow-400 transition-all ease-in-out duration-300"
+        />
+      )}
     </div>
   );
 };
@@ -56,6 +78,7 @@ const SongCard = ({ song, index }) => {
 SongCard.propTypes = {
   song: PropTypes.shape({
     name: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
     artistName: PropTypes.string.isRequired,
     albumName: PropTypes.string.isRequired,
     // Add more prop types for other properties of the song object
