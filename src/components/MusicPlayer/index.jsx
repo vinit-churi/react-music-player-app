@@ -184,7 +184,7 @@ const MusicPlayer = () => {
           />
           <TbRewindForward5 className="flex-[0_0_min-content] h-6 mx-2 cursor-pointer hover:scale-125 hover:text-[#087e02] transition-all ease-in-out duration-300" />
         </div>
-        <div className="flex items-center mr-2 flex-wrap justify-end flex-[0_0_130px] max-[600px]:hidden">
+        <div className="flex items-center mr-2 flex-wrap justify-end flex-[0_0_130px] max-[600px]:flex-nowrap max-[600px]:flex-[0_0_min-content]">
           <input
             type="range"
             name="music time seekBar"
@@ -192,7 +192,7 @@ const MusicPlayer = () => {
             disabled={false}
             ref={volumeRef}
             defaultValue={0}
-            className="audio-custom-range cursor-pointer disabled:cursor-not-allowed flex-[1_1_100%]"
+            className="audio-custom-range cursor-pointer disabled:cursor-not-allowed flex-[1_1_100%] max-[600px]:hidden"
           />
           <MdPlaylistAdd className="flex-[0_0_max-content] h-6 mx-2 cursor-pointer hover:scale-105 hover:text-[#087e02] transition-all ease-in-out duration-300" />
           <BsCollectionPlayFill

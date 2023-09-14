@@ -26,8 +26,10 @@ const SongsQueue = () => {
         w-max`}
       >
         <div
-          className={`overflow-y-hidden hover:overflow-y-auto relative bg-white group rounded-md hover:w-[300px] transition-all ease-in-out duration-300 ${
-            expandedQueue ? "w-[300px]" : "w-[90px]"
+          className={`overflow-y-hidden hover:overflow-y-auto relative bg-white group rounded-md hover:w-[300px] transition-all ease-in-out duration-300  ${
+            expandedQueue
+              ? "w-[300px] max-[600px]:w-full z-50 max-[600px]:fixed max-[600px]:top-[0px] max-[600px]:left-0 max-[600px]:right-0 max-[600px]:hover:w-full max-[600px]:bottom-[103px]"
+              : "w-[90px]"
           }`}
         >
           {/* <GiMusicSpell/> */}
