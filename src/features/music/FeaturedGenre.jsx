@@ -1,6 +1,8 @@
 import FeaturedGenreSkeleton from "@/components/Skeleton/FeaturedGenreSkeleton";
 import { useGetAllGenresQuery } from "./napsterApi";
+import { useNavigate } from "react-router-dom";
 const FeaturedGenre = () => {
+  const navigate = useNavigate();
   const { data, isLoading, isError } = useGetAllGenresQuery();
   console.log(data, isLoading, isError);
   return (
@@ -28,6 +30,11 @@ const FeaturedGenre = () => {
                 return (
                   <div
                     key={genre.id}
+                    onClick={() =>
+                      navigate(
+                        `/genre/${genre.id}/${genre.name.replace(/\//g, " ")}`
+                      )
+                    }
                     className={`flex-[0_0_max-content] transition-colors ease-in-out duration-300 hover:bg-yellow-100  flex 
                     justify-center items-center
                     max-h-[64px] cursor-pointer px-3 py-1 bg-slate-50  rounded-md`}

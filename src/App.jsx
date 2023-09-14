@@ -4,6 +4,7 @@ import HomePage from "@/components/HomePage";
 import AlbumPage from "@/components/AlbumPage";
 import Search from "@/components/Search";
 import YetToBe from "@/components/YetToBe";
+import GenrePage from "@/components/GenrePage";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -24,6 +25,11 @@ const router = createBrowserRouter([
         path: "search/",
         errorElement: <h1>search error</h1>,
         element: <Search />,
+      },
+      {
+        path: "genre/:id/:name",
+        errorElement: <h1>genre error</h1>,
+        element: <GenrePage />,
       },
       {
         path: "artist/:artistId",

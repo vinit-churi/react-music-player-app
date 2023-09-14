@@ -2,163 +2,169 @@
 @tailwind components;
 @tailwind utilities;
 
-:root{
+:root {
   --before-width: 0%;
 }
-.sidebarBackgroundImage{
-    /* background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%); */
+.sidebarBackgroundImage {
+  /* background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%); */
 }
-.hide-scrollbar{
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+.hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 .hide-scrollbar::-webkit-scrollbar {
-    display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
+  display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
 }
 
 /*********** Baseline, reset styles ***********/
 .player-custom-range {
-    -webkit-appearance: none;
-    appearance: none;
-    background: transparent;
-    cursor: pointer;
-    width: 100%;
-  }
-.player-custom-range::before{
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  width: 100%;
+}
+.player-custom-range::before {
   width: var(--before-width);
 }
-  
-  /* Removes default focus */
-  .player-custom-range:focus {
-    outline: none;
-  }
-  
-  /******** Chrome, Safari, Opera and Edge Chromium styles ********/
-  /* slider track */
-  .player-custom-range::-webkit-slider-runnable-track {
-    /* background-color: #6ff410; */
-    background-color: #6ff4106c;
-    border-radius: 0.5rem;
-    height: 6px;
-  }
-  
-  /* slider thumb */
-  .player-custom-range::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Override default look */
-    appearance: none;
-    position: relative;
-    z-index: 100;
-    margin-top: -5px; /* Centers thumb on the track */
-    background-color: #087e02;
-    border-radius: 0.5rem;
-    height: 1rem;
-    width: 1rem;
-  }
-  
-  .player-custom-range:focus::-webkit-slider-thumb {
-    outline: 3px solid #087e02;
-    outline-offset: 0.125rem;
-    position: relative;
-    z-index: 100;
-  }
-  
-  /*********** Firefox styles ***********/
-  /* slider track */
-  .player-custom-range::-moz-range-track {
-    background-color: #6ff4106c;
-    border-radius: 0.5rem;
-    height: 6px;
-  }
-  
-  /* slider thumb */
-  .player-custom-range::-moz-range-thumb {
-    background-color: #087e02;
-    border: none; /*Removes extra border that FF applies*/
-    border-radius: 0.5rem;
-    height: 1rem;
-    width: 1rem;
-    position: relative;
-    z-index: 100;
-  }
-  
-  .player-custom-range:focus::-moz-range-thumb{
-    outline: 3px solid #087e02;
-    outline-offset: 0.125rem;
-    position: relative;
-    z-index: 100;
-  }
 
+/* Removes default focus */
+.player-custom-range:focus {
+  outline: none;
+}
 
+/******** Chrome, Safari, Opera and Edge Chromium styles ********/
+/* slider track */
+.player-custom-range::-webkit-slider-runnable-track {
+  /* background-color: #6ff410; */
+  background-color: #6ff4106c;
+  border-radius: 0.5rem;
+  height: 6px;
+}
 
-  /*********** Baseline, reset styles ***********/
+/* slider thumb */
+.player-custom-range::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  position: relative;
+  z-index: 100;
+  margin-top: -5px; /* Centers thumb on the track */
+  background-color: #087e02;
+  border-radius: 0.5rem;
+  height: 1rem;
+  width: 1rem;
+}
+
+.player-custom-range:focus::-webkit-slider-thumb {
+  outline: 3px solid #087e02;
+  outline-offset: 0.125rem;
+  position: relative;
+  z-index: 100;
+}
+
+/*********** Firefox styles ***********/
+/* slider track */
+.player-custom-range::-moz-range-track {
+  background-color: #6ff4106c;
+  border-radius: 0.5rem;
+  height: 6px;
+}
+
+/* slider thumb */
+.player-custom-range::-moz-range-thumb {
+  background-color: #087e02;
+  border: none; /*Removes extra border that FF applies*/
+  border-radius: 0.5rem;
+  height: 1rem;
+  width: 1rem;
+  position: relative;
+  z-index: 100;
+}
+
+.player-custom-range:focus::-moz-range-thumb {
+  outline: 3px solid #087e02;
+  outline-offset: 0.125rem;
+  position: relative;
+  z-index: 100;
+}
+
+/*********** Baseline, reset styles ***********/
 .audio-custom-range {
-    -webkit-appearance: none;
-    appearance: none;
-    background: transparent;
-    cursor: pointer;
-    /* width: 100%; */
-  }
-  
-  /* Removes default focus */
-  .audio-custom-range:focus {
-    outline: none;
-  }
-  
-  /******** Chrome, Safari, Opera and Edge Chromium styles ********/
-  /* slider track */
-  .audio-custom-range::-webkit-slider-runnable-track {
-    background-color: #6ff4106c;
-    border-radius: 0.5rem;
-    height: 6px;
-  }
-  
-  /* slider thumb */
-  .audio-custom-range::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Override default look */
-    appearance: none;
-    margin-top: -5px; /* Centers thumb on the track */
-    background-color: #087e02;
-    border-radius: 0.5rem;
-    height: 1rem;
-    width: 1rem;
-    position: relative;
-    z-index: 100;
-  }
-  
-  .audio-custom-range:focus::-webkit-slider-thumb {
-    outline: 3px solid #087e02;
-    outline-offset: 0.125rem;
-    position: relative;
-    z-index: 100;
-  }
-  
-  /*********** Firefox styles ***********/
-  /* slider track */
-  .audio-custom-range::-moz-range-track {
-    background-color: #6ff4106c;
-    border-radius: 0.5rem;
-    height: 6px;
-  }
-  
-  /* slider thumb */
-  .audio-custom-range::-moz-range-thumb {
-    background-color: #087e02;
-    border: none; /*Removes extra border that FF applies*/
-    border-radius: 0.5rem;
-    height: 1rem;
-    width: 1rem;
-    position: relative;
-    z-index: 100;
-  }
-  
-  .audio-custom-range:focus::-moz-range-thumb{
-    outline: 3px solid #087e02;
-    outline-offset: 0.125rem;
-    position: relative;
-    z-index: 100;
-  }
-  
-  .custom-light-text-shadow{
-    text-shadow: 7px 3px 11px rgba(117, 132, 174, 1);
-    color: rgb(241, 251, 244);
-  }
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  /* width: 100%; */
+}
+
+/* Removes default focus */
+.audio-custom-range:focus {
+  outline: none;
+}
+
+/******** Chrome, Safari, Opera and Edge Chromium styles ********/
+/* slider track */
+.audio-custom-range::-webkit-slider-runnable-track {
+  background-color: #6ff4106c;
+  border-radius: 0.5rem;
+  height: 6px;
+}
+
+/* slider thumb */
+.audio-custom-range::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  margin-top: -5px; /* Centers thumb on the track */
+  background-color: #087e02;
+  border-radius: 0.5rem;
+  height: 1rem;
+  width: 1rem;
+  position: relative;
+  z-index: 100;
+}
+
+.audio-custom-range:focus::-webkit-slider-thumb {
+  outline: 3px solid #087e02;
+  outline-offset: 0.125rem;
+  position: relative;
+  z-index: 100;
+}
+
+/*********** Firefox styles ***********/
+/* slider track */
+.audio-custom-range::-moz-range-track {
+  background-color: #6ff4106c;
+  border-radius: 0.5rem;
+  height: 6px;
+}
+
+/* slider thumb */
+.audio-custom-range::-moz-range-thumb {
+  background-color: #087e02;
+  border: none; /*Removes extra border that FF applies*/
+  border-radius: 0.5rem;
+  height: 1rem;
+  width: 1rem;
+  position: relative;
+  z-index: 100;
+}
+
+.audio-custom-range:focus::-moz-range-thumb {
+  outline: 3px solid #087e02;
+  outline-offset: 0.125rem;
+  position: relative;
+  z-index: 100;
+}
+
+.custom-light-text-shadow {
+  text-shadow: 7px 3px 11px rgba(117, 132, 174, 1);
+  color: rgb(241, 251, 244);
+}
+.custom-gradient-overlay {
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    18deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0.42200630252100846) 100%
+  );
+}
