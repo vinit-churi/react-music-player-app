@@ -1,10 +1,3 @@
-/*
- * Navbar
- *  - history back button and forward button : done
- *  - search input : done
- *  - drop down filter (all | song | albums | artists | playlists)) : not done
- *  - user profile (avatar | name | logout) ? (logged out) || call to action login sign-up
- **/
 import NavHistoryRouter from "./NavHistoryRouter";
 import NavUserProfile from "./NavUserProfile";
 import SearchInput from "./SearchInput";

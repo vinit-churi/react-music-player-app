@@ -1,5 +1,4 @@
 import image1 from "@/assets/images/feature-yet-to-be.gif";
-import image2 from "@/assets/images/yet-to-be-02.gif";
 const YetToBe = () => {
   return (
     <div>

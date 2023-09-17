@@ -1,10 +1,15 @@
 import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setShowSidebar } from "../../features/audioPlayer/audioPlayerSlice";
+const PageLink = ({ linkText, className, icon, to, ...props }) => {
+  // alert("to", to);
+  const dispatch = useDispatch();
 
-const PageLink = ({ linkText, className, icon, ...props }) => {
   return (
     <NavLink
       {...props}
+      to={to}
       onClick={() => dispatch(setShowSidebar(false))}
       className={({ isActive }) => {
         return `${className} ${
@@ -24,6 +29,7 @@ PageLink.propTypes = {
   linkText: PropTypes.node.isRequired,
   className: PropTypes.string,
   icon: PropTypes.string,
+  to: PropTypes.string,
   // Other props that you might want to validate
 };
 
