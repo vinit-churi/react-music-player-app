@@ -68,9 +68,7 @@ const MusicPlayer = () => {
     function handleCanPlayThrough() {
       setPlayable(true);
       localAudioElement.play();
-      let seekBar = audioRef.current;
-      seekBar.max = localAudioElement.duration;
-      dispatch(setDuration(localAudioElement.duration));
+      dispatch(setDuration(localAudioElement.duration ?? 0));
       dispatch(play());
     }
     function handleTimeUpdate() {
@@ -107,13 +105,12 @@ const MusicPlayer = () => {
         name="music time seekBar"
         id="playerTime"
         disabled={false}
-        ref={audioRef}
+        // ref={audioRef}
         onInput={handleInput}
         value={currentTime}
         min={0}
-        max={100}
+        max={duration}
         step={0.1}
-        defaultValue={0}
         className={`absolute top-0 left-0 right-0 mx-0 translate-y-[-50%] player-custom-range cursor-pointer disabled:cursor-not-allowed before:content-[' '] before:block before:absolute before:h-[6px] before:bg-green-500 before:rounded-full`}
         style={{ "--before-width": `${seekBeforeWidth}%` }}
       />
