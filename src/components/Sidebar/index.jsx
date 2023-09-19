@@ -63,24 +63,24 @@ const Sidebar = () => {
         <p className="text-slate-500 mx-5 font-semibold  mt-8 mb-4 max-[1100px]:hidden">
           Collection
         </p>
-        <PageLink
+        {/* <PageLink
           className="mx-5 flex gap-2 align-middle my-4 cursor-pointer max-[1100px]:justify-center"
           linkText="Library"
           icon={libraryIcon}
           to="/user/collection/library"
-        />
+        /> */}
         <PageLink
           className="mx-5 flex gap-2 align-middle my-4 cursor-pointer max-[1100px]:justify-center"
           linkText="Recent"
           icon={recentIcon}
           to="/user/collection/recent"
         />
-        <PageLink
+        {/* <PageLink
           className="mx-5 flex gap-2 align-middle my-4 cursor-pointer max-[1100px]:justify-center"
           linkText="Favorites"
           icon={favoriteIcon}
           to="/user/collection/favorites"
-        />
+        /> */}
         <PageLink
           className="mx-5 flex gap-2 align-middle my-4 cursor-pointer max-[1100px]:justify-center"
           linkText="Playlists"

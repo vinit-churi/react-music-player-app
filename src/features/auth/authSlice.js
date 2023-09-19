@@ -40,7 +40,9 @@ export const successSelector = (state) => state.auth.success;
 export const loginWithGoogle = async (dispatch) => {
   try {
     const result = await signInWithPopup(auth, provider);
-    dispatch(login(result.user));
+    const user = result.user;
+    let { displayName, email, photoURL, uid } = user;
+    dispatch(login({ displayName, email, photoURL, uid }));
   } catch (error) {
     console.error(error);
   }

@@ -9,7 +9,7 @@ export const appDataApi = createApi({
       queryFn: async (userId) => {
         try {
           const response = await fireStoreUtils.getUserPlaylists(userId);
-          return { data: await response.json() };
+          return { data: response };
         } catch (err) {
           console.log(err);
           return { error: err.message };
@@ -19,30 +19,64 @@ export const appDataApi = createApi({
         console.log(response, "this is the response");
         return response.data;
       },
+      providesTags: ["UserPlaylists"],
     }),
     createPlaylist: builder.mutation({
-      queryFn: async (playlistName, userId) => {
+      queryFn: async (params) => {
+        console.log(params, "line 19..................");
+        const { userId, name } = params;
+        console.log(userId, name, "line 19..................");
         try {
-          const response = await fireStoreUtils.createUserPlaylist(
-            userId,
-            playlistName
-          );
-          return { data: await response.json() };
+          const response = await fireStoreUtils.createUserPlaylist(params);
+          return { data: response };
         } catch (err) {
           console.log(err);
           return { error: err.message };
         }
       },
+      invalidatesTags: ["UserPlaylists"],
     }),
-    addSongToPlaylist: builder.mutation({}),
-    getFavoriteList: builder.query({}),
-    addToFavoriteList: builder.mutation({}),
-    removeFromFavoriteList: builder.mutation({}),
-    getUserHistory: builder.query({}),
-    addToUserHistory: builder.mutation({}),
-    removeFromUserHistory: builder.mutation({}),
+    addSongToPlaylist: builder.mutation({
+      queryFn: async (params) => {
+        const { playlistId, songId } = params;
+        try {
+          const response = await fireStoreUtils.addSongToPlaylist({
+            playlistId,
+            songId,
+          });
+          return { data: response };
+        } catch (err) {
+          console.log(err);
+          return { error: err.message };
+        }
+      },
+      invalidatesTags: ["UserPlaylists"],
+    }),
+    removeSongFromPlaylist: builder.mutation({
+      queryFn: async (params) => {
+        const { playlistId, songId } = params;
+        try {
+          const response = await fireStoreUtils.removeSongFromPlaylist({
+            playlistId,
+            songId,
+          });
+          return { data: response };
+        } catch (err) {
+          console.log(err);
+          return { error: err.message };
+        }
+      },
+      invalidatesTags: ["UserPlaylists"],
+    }),
   }),
 });
+
+export const {
+  useGetUserPlaylistsQuery,
+  useCreatePlaylistMutation,
+  useAddSongToPlaylistMutation,
+  useRemoveSongFromPlaylistMutation,
+} = appDataApi;
 
 /*
     get user playlists,

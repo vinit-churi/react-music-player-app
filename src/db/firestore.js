@@ -15,11 +15,12 @@ import {
 const db = getFirestore(firebaseApp);
 
 export const fireStoreUtils = {
-  createUserPlaylist: async (userId, playlistName) => {
+  createUserPlaylist: async ({ userId, name }) => {
+    console.log(userId, name, "line 19..................");
     try {
       const docRef = await addDoc(collection(db, "playlists"), {
-        name: playlistName,
-        userId: userId,
+        userId,
+        name,
         songs: [],
       });
       console.log("Document written with ID: ", docRef.id);
@@ -44,11 +45,12 @@ export const fireStoreUtils = {
       return null;
     }
   },
-  addSongToPlaylist: async (playlistId, song) => {
+  addSongToPlaylist: async ({ playlistId, songId }) => {
+    console.log({ playlistId, songId }, "addSongToPlaylist");
     try {
       const playlistRef = doc(db, "playlists", playlistId);
       await updateDoc(playlistRef, {
-        songs: arrayUnion(song),
+        songs: arrayUnion(songId),
       });
       return true;
     } catch (err) {
@@ -56,11 +58,12 @@ export const fireStoreUtils = {
       return false;
     }
   },
-  removeSongFromPlaylist: async (playlistId, song) => {
+  removeSongFromPlaylist: async ({ playlistId, songId }) => {
+    console.log({ playlistId, songId }, "removeSongFromPlaylist");
     try {
       const playlistRef = doc(db, "playlists", playlistId);
       await updateDoc(playlistRef, {
-        songs: arrayRemove(song),
+        songs: arrayRemove(songId),
       });
       return true;
     } catch (err) {

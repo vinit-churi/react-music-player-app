@@ -6,6 +6,8 @@ import Search from "@/components/Search";
 import YetToBe from "@/components/YetToBe";
 import GenrePage from "@/components/GenrePage";
 import Protected from "@/components/Protected";
+import PlaylistPage from "@/components/PlaylistPage/PlaylistPage";
+import SinglePlaylistPage from "@/components/PlaylistPage/SinglePlaylistPage";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -97,18 +99,22 @@ const router = createBrowserRouter([
               {
                 path: "playlists",
                 errorElement: <h1>playlist error</h1>,
-                element: (
-                  <Protected>
-                    <YetToBe />
-                  </Protected>
-                ),
                 children: [
                   {
-                    path: ":playlistId",
+                    index: true,
                     errorElement: <h1>playlist error</h1>,
                     element: (
                       <Protected>
-                        <YetToBe />
+                        <PlaylistPage />
+                      </Protected>
+                    ),
+                  },
+                  {
+                    path: ":id",
+                    errorElement: <h1>playlist error</h1>,
+                    element: (
+                      <Protected>
+                        <SinglePlaylistPage />
                       </Protected>
                     ),
                   },

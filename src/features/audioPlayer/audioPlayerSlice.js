@@ -102,4 +102,6 @@ export const selectCurrentTrack = (state) => state.audioPlayer.currentTrack;
 export const selectSongQueue = (state) => state.audioPlayer.songQueue;
 export const selectExpandedQueue = (state) => state.audioPlayer.expandedQueue;
 export const selectShowSidebar = (state) => state.audioPlayer.showSidebar;
+export const selectShowPlaylistModal = (state) =>
+  state.audioPlayer.showPlaylistModal;
 export default audioPlayerSlice.reducer;

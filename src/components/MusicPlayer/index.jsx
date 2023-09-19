@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect, useCallback } from "react";
+import { useRef, useState, useEffect } from "react";
 import { AiFillPlayCircle } from "react-icons/ai";
 import { MdPlaylistAdd } from "react-icons/md";
 import { BsCollectionPlayFill } from "react-icons/bs";
@@ -8,6 +8,9 @@ import { TbRewindBackward5 } from "react-icons/tb";
 import { TbRewindForward5 } from "react-icons/tb";
 import { BsFillPauseCircleFill } from "react-icons/bs";
 import { useSelector, useDispatch } from "react-redux";
+import { createPortal } from "react-dom";
+import PlaylistModal from "@/components/PlaylistModal";
+import notify from "@/components/notify";
 import {
   selectExpandedQueue,
   setExpandedQueue,
@@ -24,10 +27,12 @@ import {
   selectDuration,
   selectCurrentTrack,
   playNext,
+  setShowPlaylistModal,
+  selectShowPlaylistModal,
 } from "@/features/audioPlayer/audioPlayerSlice";
+import { userSelector } from "@/features/auth/authSlice";
 const MusicPlayer = () => {
-  const audioRef = useRef();
-  const volumeRef = useRef();
+  const user = useSelector(userSelector);
   const audioElement = useRef(new Audio());
   // const audioElement = new Audio();
   const [playable, setPlayable] = useState(false);
@@ -41,6 +46,17 @@ const MusicPlayer = () => {
   const expandedQueue = useSelector(selectExpandedQueue);
   const songQueue = useSelector(selectSongQueue);
   // console.log("do I have the latest value of songQueue?", songQueue);
+
+  const showPlaylistModal = useSelector(selectShowPlaylistModal);
+
+  function addToPlaylist() {
+    if (user) {
+      dispatch(setShowPlaylistModal(!showPlaylistModal));
+    } else {
+      console.log("please login to add to playlist");
+      notify("Please login to add to playlist", "🔑");
+    }
+  }
   function handleInput(e) {
     console.log("handle input", e.target.value);
     audioElement.current.currentTime = e.target.value;
@@ -100,6 +116,16 @@ const MusicPlayer = () => {
   }, [currentTrack]);
   return (
     <div className="row-start-3 row-end-4 col-start-2 col-end-4 relative bg-slate-100">
+      {showPlaylistModal &&
+        currentTrack &&
+        document.getElementById("modalRoot") &&
+        createPortal(
+          <PlaylistModal
+            songId={currentTrack.id}
+            closeModal={() => dispatch(setShowPlaylistModal(false))}
+          />,
+          document.getElementById("modalRoot")
+        )}
       <input
         type="range"
         name="music time seekBar"
@@ -190,7 +216,10 @@ const MusicPlayer = () => {
             // defaultValue={0}
             className="audio-custom-range cursor-pointer disabled:cursor-not-allowed flex-[1_1_100%] max-[600px]:hidden"
           />
-          <MdPlaylistAdd className="flex-[0_0_max-content] h-6 mx-2 cursor-pointer hover:scale-105 hover:text-[#087e02] transition-all ease-in-out duration-300" />
+          <MdPlaylistAdd
+            onClick={addToPlaylist}
+            className="flex-[0_0_max-content] h-6 mx-2 cursor-pointer hover:scale-105 hover:text-[#087e02] transition-all ease-in-out duration-300"
+          />
           <BsCollectionPlayFill
             onClick={() => dispatch(setExpandedQueue(!expandedQueue))}
             className={`flex-[0_0_max-content] h-6 mx-2 cursor-pointer hover:scale-105  transition-all ease-in-out duration-300 ${
