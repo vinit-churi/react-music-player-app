@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: |
-          echo "VITE_NAPSTER_API_KEY=${API_KEY}" > .env
+          echo "VITE_NAPSTER_API_KEY=${NAPSTER_API_KEY}" > .env
           echo "VITE_CLIENT_ID=${CLIENT_ID}" >> .env
           npm install
           npm run build
