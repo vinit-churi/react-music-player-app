@@ -62,7 +62,8 @@ export const checkUserSession = async (dispatch) => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         console.log("user is", user);
-        dispatch(login(user));
+        let { displayName, email, photoURL, uid } = user;
+        dispatch(login({ displayName, email, photoURL, uid }));
       } else {
         console.log("user is null");
         dispatch(logout());

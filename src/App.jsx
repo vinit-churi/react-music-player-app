@@ -5,6 +5,7 @@ import AlbumPage from "@/components/AlbumPage";
 import Search from "@/components/Search";
 import YetToBe from "@/components/YetToBe";
 import GenrePage from "@/components/GenrePage";
+import Protected from "@/components/Protected";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -42,13 +43,21 @@ const router = createBrowserRouter([
         children: [
           {
             path: "profile",
-            element: <YetToBe />,
+            element: (
+              <Protected>
+                <YetToBe />
+              </Protected>
+            ),
             errorElement: <h1>user/profile error</h1>,
           },
           {
             path: "settings",
             errorElement: <h1>profile settings error</h1>,
-            element: <YetToBe />,
+            element: (
+              <Protected>
+                <YetToBe />
+              </Protected>
+            ),
           },
           {
             path: "collection",
@@ -58,30 +67,50 @@ const router = createBrowserRouter([
               {
                 path: "library",
                 errorElement: <h1>library error</h1>,
-                element: <YetToBe />,
+                element: (
+                  <Protected>
+                    <YetToBe />
+                  </Protected>
+                ),
               },
               // => Recent
               {
                 path: "recent",
                 errorElement: <h1>recent error</h1>,
-                element: <YetToBe />,
+                element: (
+                  <Protected>
+                    <YetToBe />
+                  </Protected>
+                ),
               },
               // => favorites
               {
                 path: "favorites",
                 errorElement: <h1>favorites error</h1>,
-                element: <YetToBe />,
+                element: (
+                  <Protected>
+                    <YetToBe />
+                  </Protected>
+                ),
               },
               //  => playlists
               {
                 path: "playlists",
                 errorElement: <h1>playlist error</h1>,
-                element: <YetToBe />,
+                element: (
+                  <Protected>
+                    <YetToBe />
+                  </Protected>
+                ),
                 children: [
                   {
                     path: ":playlistId",
                     errorElement: <h1>playlist error</h1>,
-                    element: <YetToBe />,
+                    element: (
+                      <Protected>
+                        <YetToBe />
+                      </Protected>
+                    ),
                   },
                 ],
               },
