@@ -30,7 +30,9 @@ const TopSongs = () => {
                       key={song.id}
                       song={song}
                       index={
-                        index + 1 < 10 ? `0${Number(index) + 1}` : index + 1
+                        index + 1 < 10
+                          ? `0${Number(index) + 1}`
+                          : `${Number(index) + 1}`
                       }
                     />
                   );

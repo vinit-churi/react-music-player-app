@@ -10,12 +10,16 @@ const initialState = {
   songQueue: [],
   expandedQueue: false,
   showSidebar: false,
+  showPlaylistModal: false,
 };
 
 export const audioPlayerSlice = createSlice({
   name: "audioPlayer",
   initialState,
   reducers: {
+    setShowPlaylistModal: (state, action) => {
+      state.showPlaylistModal = action.payload;
+    },
     play: (state) => {
       state.isPlaying = true;
     },
@@ -87,6 +91,7 @@ export const {
   resetSongQueue,
   playNext,
   setShowSidebar,
+  setShowPlaylistModal,
 } = audioPlayerSlice.actions;
 
 export const selectIsPlaying = (state) => state.audioPlayer.isPlaying;

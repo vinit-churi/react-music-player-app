@@ -189,9 +189,8 @@ const MusicPlayer = () => {
             type="range"
             name="music time seekBar"
             id="playerTime"
-            disabled={false}
-            ref={volumeRef}
-            defaultValue={0}
+            disabled={true}
+            // defaultValue={0}
             className="audio-custom-range cursor-pointer disabled:cursor-not-allowed flex-[1_1_100%] max-[600px]:hidden"
           />
           <MdPlaylistAdd className="flex-[0_0_max-content] h-6 mx-2 cursor-pointer hover:scale-105 hover:text-[#087e02] transition-all ease-in-out duration-300" />
