@@ -14,13 +14,13 @@ import notify from "@/components/notify";
 import {
   selectExpandedQueue,
   setExpandedQueue,
-  setSongQueue,
+  // setSongQueue,
   play,
   pause,
-  selectSongQueue,
+  // selectSongQueue,
   setCurrentTime,
   setDuration,
-  setCurrentTrack,
+  // setCurrentTrack,
   selectIsPlaying,
   // selectVolume,
   selectCurrentTime,
@@ -29,6 +29,8 @@ import {
   playNext,
   setShowPlaylistModal,
   selectShowPlaylistModal,
+  addSongToHistory,
+  playPrevious,
 } from "@/features/audioPlayer/audioPlayerSlice";
 import { userSelector } from "@/features/auth/authSlice";
 const MusicPlayer = () => {
@@ -44,7 +46,7 @@ const MusicPlayer = () => {
   const duration = useSelector(selectDuration);
   const currentTrack = useSelector(selectCurrentTrack);
   const expandedQueue = useSelector(selectExpandedQueue);
-  const songQueue = useSelector(selectSongQueue);
+  // const songQueue = useSelector(selectSongQueue);
   // console.log("do I have the latest value of songQueue?", songQueue);
 
   const showPlaylistModal = useSelector(selectShowPlaylistModal);
@@ -86,6 +88,7 @@ const MusicPlayer = () => {
       localAudioElement.play();
       dispatch(setDuration(localAudioElement.duration ?? 0));
       dispatch(play());
+      dispatch(addSongToHistory(currentTrack));
     }
     function handleTimeUpdate() {
       dispatch(setCurrentTime(localAudioElement.currentTime));
@@ -94,6 +97,7 @@ const MusicPlayer = () => {
       setSeekBeforeWidth(seekBeforeWidth);
     }
     function handleEnded() {
+      // dispatch(addSongToHistory(currentTrack));
       setPlayable(false);
       dispatch(setCurrentTime(0));
       dispatch(setDuration(0));
@@ -183,7 +187,10 @@ const MusicPlayer = () => {
         </div>
         <div className="flex mx-auto items-center">
           <TbRewindBackward5 className="flex-[0_0_min-content] h-6 mx-2 cursor-pointer hover:scale-125 hover:text-[#087e02] transition-all ease-in-out duration-300" />
-          <AiOutlineStepBackward className="flex-[0_0_min-content] h-6 mx-2 cursor-pointer hover:scale-125 hover:text-[#087e02] transition-all ease-in-out duration-300" />
+          <AiOutlineStepBackward
+            onClick={() => dispatch(playPrevious())}
+            className="flex-[0_0_min-content] h-6 mx-2 cursor-pointer hover:scale-125 hover:text-[#087e02] transition-all ease-in-out duration-300"
+          />
           {isPlaying ? (
             <button
               onClick={handlePause}

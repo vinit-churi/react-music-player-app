@@ -45,6 +45,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "eslint-plugin-storybook": "^0.6.13",
+    "firebase-tools": "^12.5.4",
     "postcss": "^8.4.27",
     "prop-types": "^15.8.1",
     "storybook": "^7.2.1",

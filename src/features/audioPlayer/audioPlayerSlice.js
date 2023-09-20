@@ -8,6 +8,7 @@ const initialState = {
   duration: 0,
   currentTrack: null,
   songQueue: [],
+  historyQueue: [],
   expandedQueue: false,
   showSidebar: false,
   showPlaylistModal: false,
@@ -59,6 +60,26 @@ export const audioPlayerSlice = createSlice({
         // state.isPlaying = false;
       }
     },
+    playPrevious: (state) => {
+      if (state.historyQueue.length > 1) {
+        if (state.currentTrack) {
+          state.songQueue.unshift(state.currentTrack);
+        }
+        state.historyQueue.pop();
+        state.currentTrack = state.historyQueue.pop();
+      } else {
+        console.log("no more songs in history");
+        if (!state.isPlaying) {
+          state.currentTrack = null;
+        }
+        // state.currentTime = 0;
+        // state.duration = 0;
+        // state.isPlaying = false;
+      }
+    },
+    addSongToHistory: (state, action) => {
+      state.historyQueue.push(action.payload);
+    },
     addToSongQueue: (state, action) => {
       if (state.currentTrack == null) {
         state.currentTrack = action.payload;
@@ -92,6 +113,8 @@ export const {
   playNext,
   setShowSidebar,
   setShowPlaylistModal,
+  addSongToHistory,
+  playPrevious,
 } = audioPlayerSlice.actions;
 
 export const selectIsPlaying = (state) => state.audioPlayer.isPlaying;
@@ -104,4 +127,6 @@ export const selectExpandedQueue = (state) => state.audioPlayer.expandedQueue;
 export const selectShowSidebar = (state) => state.audioPlayer.showSidebar;
 export const selectShowPlaylistModal = (state) =>
   state.audioPlayer.showPlaylistModal;
+export const selectHistoryQueue = (state) => state.audioPlayer.historyQueue;
+
 export default audioPlayerSlice.reducer;
