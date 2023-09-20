@@ -52,6 +52,38 @@ export const appDataApi = createApi({
       },
       invalidatesTags: ["UserPlaylists"],
     }),
+    addSongToHistory: builder.mutation({
+      queryFn: async (params) => {
+        const { userId, songId } = params;
+        try {
+          const response = await fireStoreUtils.addSongToHistory({
+            userId,
+            songId,
+          });
+          return { data: response };
+        } catch (err) {
+          console.log(err);
+          return { error: err.message };
+        }
+      },
+      invalidatesTags: ["UserHistory"],
+    }),
+    getSongsFromHistory: builder.query({
+      queryFn: async (userId) => {
+        try {
+          const response = await fireStoreUtils.getSongsFromHistory(userId);
+          return { data: response };
+        } catch (err) {
+          console.log(err);
+          return { error: err.message };
+        }
+      },
+      transformResponse: (response) => {
+        console.log(response, "this is the response");
+        return response.data;
+      },
+      providesTags: ["UserHistory"],
+    }),
     removeSongFromPlaylist: builder.mutation({
       queryFn: async (params) => {
         const { playlistId, songId } = params;
@@ -76,6 +108,8 @@ export const {
   useCreatePlaylistMutation,
   useAddSongToPlaylistMutation,
   useRemoveSongFromPlaylistMutation,
+  useAddSongToHistoryMutation,
+  useGetSongsFromHistoryQuery,
 } = appDataApi;
 
 /*

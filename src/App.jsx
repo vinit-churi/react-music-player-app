@@ -8,6 +8,7 @@ import GenrePage from "@/components/GenrePage";
 import Protected from "@/components/Protected";
 import PlaylistPage from "@/components/PlaylistPage/PlaylistPage";
 import SinglePlaylistPage from "@/components/PlaylistPage/SinglePlaylistPage";
+import HistoryPage from "@/components/History/HistoryPage";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -81,7 +82,7 @@ const router = createBrowserRouter([
                 errorElement: <h1>recent error</h1>,
                 element: (
                   <Protected>
-                    <YetToBe />
+                    <HistoryPage />
                   </Protected>
                 ),
               },

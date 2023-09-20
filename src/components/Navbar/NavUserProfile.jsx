@@ -39,7 +39,7 @@ const NavUserProfile = () => {
             onClick={() => setShowDropdown((prev) => !prev)}
           />
           {showDropdown && (
-            <div className="absolute top-12 right-0 bg-slate-100 border border-slate-700 rounded-lg w-40">
+            <div className="absolute top-12 right-0 bg-slate-100 border border-slate-700 rounded-lg w-40 z-[120]">
               <ul className="text-slate-900">
                 <li className="p-2 border-b border-slate-300 hover:bg-white hover:text-black cursor-pointer rounded-tr-lg rounded-tl-lg">
                   Profile

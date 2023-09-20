@@ -32,6 +32,7 @@ import {
   addSongToHistory,
   playPrevious,
 } from "@/features/audioPlayer/audioPlayerSlice";
+import { useAddSongToHistoryMutation } from "@/features/appData/appData";
 import { userSelector } from "@/features/auth/authSlice";
 const MusicPlayer = () => {
   const user = useSelector(userSelector);
@@ -48,6 +49,7 @@ const MusicPlayer = () => {
   const expandedQueue = useSelector(selectExpandedQueue);
   // const songQueue = useSelector(selectSongQueue);
   // console.log("do I have the latest value of songQueue?", songQueue);
+  const [addSongToHistoryInCloud] = useAddSongToHistoryMutation();
 
   const showPlaylistModal = useSelector(selectShowPlaylistModal);
 
@@ -89,6 +91,11 @@ const MusicPlayer = () => {
       dispatch(setDuration(localAudioElement.duration ?? 0));
       dispatch(play());
       dispatch(addSongToHistory(currentTrack));
+      if (!user) return;
+      addSongToHistoryInCloud({
+        songId: currentTrack.id,
+        userId: user?.uid,
+      });
     }
     function handleTimeUpdate() {
       dispatch(setCurrentTime(localAudioElement.currentTime));
