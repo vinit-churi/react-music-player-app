@@ -61,21 +61,42 @@ export const audioPlayerSlice = createSlice({
       }
     },
     playPrevious: (state) => {
-      if (state.historyQueue.length > 1) {
-        if (state.currentTrack) {
-          state.songQueue.unshift(state.currentTrack);
-        }
+      console.log("playPrevious", state.historyQueue);
+      if (state.historyQueue.length === 0) return;
+      if (state.currentTrack && state.historyQueue.length > 1) {
         state.historyQueue.pop();
+        state.songQueue.unshift(state.currentTrack);
         state.currentTrack = state.historyQueue.pop();
-      } else {
-        console.log("no more songs in history");
-        if (!state.isPlaying) {
-          state.currentTrack = null;
-        }
-        // state.currentTime = 0;
-        // state.duration = 0;
-        // state.isPlaying = false;
+        state.currentTime = 0;
+        state.duration = 0;
+        state.isPlaying = false;
+        return;
       }
+      if (!state.currentTrack && state.historyQueue.length > 0) {
+        state.currentTrack = state.historyQueue.pop();
+        state.currentTime = 0;
+        state.duration = 0;
+        state.isPlaying = false;
+        return;
+      }
+      // if (state.currentTrack) {
+      //   if (state.historyQueue.length > 1) {
+      //     state.songQueue.unshift(state.currentTrack);
+      //   }
+      //   state.historyQueue.pop();
+      //   if (state.historyQueue.length <= 0) return;
+      //   state.currentTime = 0;
+      //   state.duration = 0;
+      //   state.isPlaying = false;
+      //   state.currentTrack = state.historyQueue.pop();
+      // } else {
+      //   state.historyQueue.pop();
+      //   if (state.historyQueue.length <= 0) return;
+      //   state.currentTime = 0;
+      //   state.duration = 0;
+      //   state.isPlaying = false;
+      //   state.currentTrack = state.historyQueue.pop();
+      // }
     },
     addSongToHistory: (state, action) => {
       state.historyQueue.push(action.payload);

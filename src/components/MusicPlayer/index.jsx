@@ -81,6 +81,20 @@ const MusicPlayer = () => {
       audioElement.current.pause();
     }
   }, [isPlaying]);
+  function skipForward() {
+    if (!currentTrack) return;
+    let newTime = audioElement.current.currentTime + 5;
+    if (newTime < audioElement.current.duration) {
+      audioElement.current.currentTime = newTime;
+    }
+  }
+  function skipBackward() {
+    if (!currentTrack) return;
+    let newTime = audioElement.current.currentTime - 5;
+    if (newTime > 0) {
+      audioElement.current.currentTime = newTime;
+    }
+  }
   useEffect(() => {
     if (!currentTrack) return;
     const localAudioElement = audioElement.current;
@@ -90,7 +104,7 @@ const MusicPlayer = () => {
       localAudioElement.play();
       dispatch(setDuration(localAudioElement.duration ?? 0));
       dispatch(play());
-      dispatch(addSongToHistory(currentTrack));
+      // dispatch(addSongToHistory(currentTrack));
       if (!user) return;
       addSongToHistoryInCloud({
         songId: currentTrack.id,
@@ -113,6 +127,8 @@ const MusicPlayer = () => {
       audioElement.current.src = "";
       dispatch(playNext());
     }
+
+    dispatch(addSongToHistory(currentTrack));
     localAudioElement.addEventListener("canplaythrough", handleCanPlayThrough);
     localAudioElement.addEventListener("ended", handleEnded);
     localAudioElement.addEventListener("timeupdate", handleTimeUpdate);
@@ -193,7 +209,10 @@ const MusicPlayer = () => {
           )}
         </div>
         <div className="flex mx-auto items-center">
-          <TbRewindBackward5 className="flex-[0_0_min-content] h-6 mx-2 cursor-pointer hover:scale-125 hover:text-[#087e02] transition-all ease-in-out duration-300" />
+          <TbRewindBackward5
+            onClick={skipBackward}
+            className="flex-[0_0_min-content] h-6 mx-2 cursor-pointer hover:scale-125 hover:text-[#087e02] transition-all ease-in-out duration-300"
+          />
           <AiOutlineStepBackward
             onClick={() => dispatch(playPrevious())}
             className="flex-[0_0_min-content] h-6 mx-2 cursor-pointer hover:scale-125 hover:text-[#087e02] transition-all ease-in-out duration-300"
@@ -219,7 +238,10 @@ const MusicPlayer = () => {
             onClick={() => dispatch(playNext())}
             className="flex-[0_0_min-content] h-6 mx-2 cursor-pointer hover:scale-125 hover:text-[#087e02] transition-all ease-in-out duration-300"
           />
-          <TbRewindForward5 className="flex-[0_0_min-content] h-6 mx-2 cursor-pointer hover:scale-125 hover:text-[#087e02] transition-all ease-in-out duration-300" />
+          <TbRewindForward5
+            onClick={skipForward}
+            className="flex-[0_0_min-content] h-6 mx-2 cursor-pointer hover:scale-125 hover:text-[#087e02] transition-all ease-in-out duration-300"
+          />
         </div>
         <div className="flex items-center mr-2 flex-wrap justify-end flex-[0_0_130px] max-[600px]:flex-nowrap max-[600px]:flex-[0_0_min-content]">
           <input
