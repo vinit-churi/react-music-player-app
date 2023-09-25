@@ -12,14 +12,14 @@ const ArtistHomeDetail = ({ artist }) => {
     bio = striptags(artist.bios[0].bio);
   }
   return (
-    <div className="bg-cyan-200 @[768px]:flex">
+    <div className="bg-slate-300 @[768px]:flex">
       <div className="flex-1 @[768px]:flex-[1_2_50%] h-max @[768px]:h-[350px]">
         <h2 className="text-[24px] mx-2 font-bold">Artist info</h2>
-        <p className="text-justify overflow-auto text-ellipsis px-5 m-5 mt-0 max-h-[300px] @[768px]:min-h-[300px]">
+        <p className="text-justify overflow-y-auto  px-2 mt-0 min-h-[300px] columns-2 max-h-[300px] @[768px]:min-h-[300px]">
           {bio}
         </p>
       </div>
-      <div className="flex-1 @[768px]:flex-[1_1_50%] max-h-[300px] min-h-[300px] flex-wrap flex gap-2 overflow-y-auto hide-scrollbar my-[15px]">
+      <div className="flex-1 @[768px]:flex-[1_1_50%] h-max overflow-x-auto flex gap-2  hide-scrollbar my-[15px]">
         {isLoading && !data && !error ? (
           <>
             {[...Array(10).keys()].map((index) => (

@@ -15,18 +15,18 @@ const Index = () => {
           <AlbumPageSk />
         ) : (
           <div>
-            <div className="flex">
+            <div className="flex max-[500px]:flex-wrap">
               <img
-                className="w-60 h-60 object-cover rounded-lg flex-[0_0_min-content]]"
+                className="w-60 h-60 object-cover max-[500px]:mx-auto rounded-lg flex-[0_1_min-content]"
                 src={`https://api.napster.com/imageserver/v2/albums/${albumId}/images/500x500.jpg
 `}
                 alt="some album"
               />
-              <div aria-label="album info" className="flex-auto self-end">
-                <h2 className="max-w-full m-2 font-Karla text-3xl font-semibold mx-2 text-slate-500">
+              <div aria-label="album info" className="flex-auto self-end ">
+                <h2 className="max-w-full m-2 font-Karla text-3xl font-semibold mx-2 text-slate-500 max-[500px]:text-center">
                   {data[0].artistName}
                 </h2>
-                <p className="max-w-full m-2 font-Karla text-sm font-semibold mx-2 text-slate-300">
+                <p className="max-w-full m-2 font-Karla text-sm font-semibold mx-2 text-slate-300 max-[500px]:text-center">
                   {data[0].albumName}
                 </p>
               </div>

@@ -142,7 +142,7 @@ const MusicPlayer = () => {
     };
   }, [currentTrack]);
   return (
-    <div className="row-start-3 row-end-4 col-start-2 col-end-4 relative bg-slate-100">
+    <div className="row-start-3 row-end-4 col-start-2 col-end-4 relative bg-yellow-50">
       {showPlaylistModal &&
         currentTrack &&
         document.getElementById("modalRoot") &&
@@ -164,7 +164,9 @@ const MusicPlayer = () => {
         min={0}
         max={duration}
         step={0.1}
-        className={`absolute top-0 left-0 right-0 mx-0 translate-y-[-50%] player-custom-range cursor-pointer disabled:cursor-not-allowed before:content-[' '] before:block before:absolute before:h-[6px] before:bg-green-500 before:rounded-full`}
+        className={`absolute top-0 left-0 right-0 mx-0 translate-y-[-50%] player-custom-range cursor-pointer disabled:cursor-not-allowed before:content-[' '] before:block before:absolute before:h-[6px] before:bg-green-500 before:rounded-full ${
+          !currentTrack && "hidden"
+        }`}
         style={{ "--before-width": `${seekBeforeWidth}%` }}
       />
       <div className="flex justify-between px-2 py-2">

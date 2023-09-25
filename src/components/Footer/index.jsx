@@ -5,7 +5,7 @@ import logo from "@/assets/images/logo3.svg";
 const Footer = () => {
   return (
     <div className="">
-      <div className="bg-black ">
+      <div className="bg-black max-[500px]:hidden ">
         <img
           className="invert-[1] block mx-auto mt-4"
           src={logo}

@@ -23,7 +23,7 @@ const TopSongs = () => {
                   </h2>
                 </div>
               </div>
-              <div className="flex gap-3 flex-wrap bg-white rounded-md border-[10px] border-slate-100 border-solid p-4 overflow-auto border-r-[15px] max-h-[400px] h-[400px] min-h-[400px]">
+              <div className="flex gap-3 flex-wrap bg-white rounded-md border-[10px] border-slate-100 border-solid p-4 overflow-auto border-r-[15px] max-h-[400px] h-[400px] min-h-[400px] max-[500px]:max-h-none max-[500px]:h-max">
                 {data.map((song, index) => {
                   return (
                     <SongCard

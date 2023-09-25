@@ -2,15 +2,17 @@ import logo from "@/assets/images/logo3.svg";
 import PageLink from "@/components/PageLink";
 import homeIcon from "@/assets/icons/home.png";
 import searchIcon from "@/assets/icons/search-1.png";
-import libraryIcon from "@/assets/icons/playlist.png";
 import recentIcon from "@/assets/icons/recent.png";
-import favoriteIcon from "@/assets/icons/love-song.png";
 import playlistIcon from "@/assets/icons/music-note.png";
 import settingIcon from "@/assets/icons/setting.png";
 import { Link } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
-import NavUserProfile from "@/components/Navbar/NavUserProfile";
+import {
+  userSelector,
+  loginWithGoogle,
+  logoutUser,
+} from "@/features/auth/authSlice";
 import {
   setShowSidebar,
   selectShowSidebar,
@@ -18,6 +20,7 @@ import {
 const Sidebar = () => {
   const dispatch = useDispatch();
   const showSidebar = useSelector(selectShowSidebar);
+  const user = useSelector(userSelector);
   return (
     <aside
       className={`col-start-1 col-end-2 row-start-1 row-end-4 bg-slate-50`}
@@ -97,7 +100,21 @@ const Sidebar = () => {
           to="/user/settings"
         />
         <div className="w-max my-2 mx-auto hidden max-[1100px]:block">
-          <NavUserProfile />
+          {user ? (
+            <button
+              onClick={() => logoutUser(dispatch)}
+              className="h-10 rounded-full border-2 text-black border-slate-700 px-5 bg-yellow-200 mx-5"
+            >
+              logout
+            </button>
+          ) : (
+            <button
+              onClick={() => loginWithGoogle(dispatch)}
+              className="h-10 rounded-full border-2 text-black border-slate-700 px-5 bg-yellow-200 mx-5"
+            >
+              login / Sign-up
+            </button>
+          )}
         </div>
       </div>
     </aside>

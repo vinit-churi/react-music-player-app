@@ -15,7 +15,7 @@ const ArtistGrid = ({ artists }) => {
             selectedArtist={selectedArtist}
             setSelectedArtist={setSelectedArtist}
           />
-          <div className="h-max @[768px]:col-span-2">
+          <div className="h-max @[768px]:col-span-2 min-w-0">
             {selectedArtist.id === artist.id && (
               <ArtistHomeDetail artist={selectedArtist} />
             )}

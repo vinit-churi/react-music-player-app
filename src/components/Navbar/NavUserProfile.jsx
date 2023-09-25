@@ -1,7 +1,10 @@
 import { useSelector, useDispatch } from "react-redux";
-import { userSelector, loginWithGoogle } from "@/features/auth/authSlice";
+import {
+  userSelector,
+  loginWithGoogle,
+  logoutUser,
+} from "@/features/auth/authSlice";
 import { useEffect, useRef, useState } from "react";
-import { logoutUser } from "@/features/auth/authSlice";
 const NavUserProfile = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const dispatch = useDispatch();

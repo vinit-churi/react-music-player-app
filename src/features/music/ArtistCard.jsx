@@ -33,11 +33,11 @@ const ArtistCard = ({
         alt={artist.name}
         className="flex-[0_0_200px] rounded-md max-[500px]:flex-[0_0_150px] "
       />
-      <div className="flex-[1_1_auto] max-w-full">
+      <div className="flex-[1_1_auto] max-w-full min-w-0">
         <h2 className=" font-bold rounded-md mx-2 text-ellipsis  whitespace-nowrap overflow-hidden text-slate-500">
           {artist.name}
         </h2>
-        <p className="h-[50px] overflow-ellipsis overflow-clip whitespace-break-spaces p-2">
+        <p className="h-[50px] overflow-ellipsis overflow-clip whitespace-break-spaces p-2 min-w-0">
           {bio}
         </p>
       </div>
